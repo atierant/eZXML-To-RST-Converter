@@ -142,23 +142,8 @@ ________________________________
 
 Commentaires sur les classes existantes :
 -----------------------------------------
-1. La classe Classe_X
------------------------------------------------
-- Classe située dans le/chemin/du/fichier.php
-- http://ezcomponents.org/docs/api/trunk/Composant/classedocumentée.html
-- Ces données sont stockées dans les propriétés suivantes :
-    + $aaaa: tableau d'instances de xxx.
-    + $bbbb: instance de yyy
-    + $cccc: instance de zzz
 
-- Il contient les variables de la requête dans un tableau $ddd[clé]=>valeur.
-
-2. La classe mère Classe_mere
--------------------------------------
-- Classe située dans le/chemin/du/fichier.php
-- Il s'agit d'une classe abstraite devant être héritée par tous les DDDDDDDDDDDDDDDDDD.
-
-3. Notre classe ezcDocumentEzXmlToRstConverter
+1. Notre classe ezcDocumentEzXmlToRstConverter
 ----------------------------------------------
 - Classe située dans ./lib/ezc/Document/options/converter_ezxml_rst.php
 - Avec quoi la peupler au vu de ce qui a été observé sur les classes précédentes ?
