@@ -1,44 +1,38 @@
-ezcDocumenteZXMLToRSTConverter
-=================================
+ezcDocumentEzXmlToRstConverter
+==============================
 
 Principe de base
-----------------
+================
 
 Un fichier d'un langage de balisage particulier est transformé en un autre langage de balisage.
 Pour ce faire, nous avons dans les eZ Components un composant particulier, "Document", qui permet de réaliser diverses opérations sur les langages balisés, donc cette conversion.
 - [ToDo]
 
 Problématique
--------------
+=============
 
 Dans les ezcDocument, il n'y a pas de convertisseur de eZXML en ReStructuredText, pas non plus de convertisseur de ReStructuredText en eZXML.
-- Nous voulons créer une classe de conversion contenant deux méthodes :
-    + une méthode qui transforme un eZXML en Rst,
-    + une autre qui transforme un Rst en eZXML.
+Nous voulons créer une classe de conversion contenant deux méthodes :
+        + une méthode qui transforme un eZXML en Rst,
+        + une autre qui transforme un Rst en eZXML.
 
 Nous voulons également deux scripts indépendants pour la conversion des formats :
-    + un script ezxml2rst.php,
-    + un script rst2ezxml.php.
+        + un script ezxml2rst.php,
+        + un script rst2ezxml.php.
 
-- On part avec l'avantage d'avoir les deux langages qui sont disponibles (ezcDocumentRst pour le format ReStructuredText et ezcDocumentEzXml pour le format eZXML)
-- Nous avons à notre disposition d'autres convertisseurs similaires, héritant de ezcDocumentConverter.
+On part avec l'avantage d'avoir les deux langages qui sont disponibles (ezcDocumentRst pour le format ReStructuredText et ezcDocumentEzXml pour le format eZXML)
+Nous avons à notre disposition d'autres convertisseurs similaires, héritant de ezcDocumentConverter.
 
-Un exemple de convertisseur existant :
-exemple : http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentDocbookToRstConverter.html
-ezcDocumentDocbookToRstConverter est une classe du composant Document des eZ Components.
-La responsabilité de la classe ezcDocumentDocbookToRstConverter est de convertir un document au format Docbook en un document au format ReStructuredText. En prenant cette classe comme exemple, nous allons créer un ezcDocumentEzXmlToRstConverter.
+Un exemple de convertisseur existant :  
+exemple : http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentDocbookToRstConverter.html  
+ezcDocumentDocbookToRstConverter est une classe du composant Document des eZ Components.  
+La responsabilité de la classe ezcDocumentDocbookToRstConverter est de convertir un document au format Docbook en un document au format ReStructuredText. En prenant cette classe comme exemple, nous allons créer un ezcDocumentEzXmlToRstConverter.  
 La classe ezcDocumentEzXmlToRstConverter demandée doit convertir un document au format eZXML en un document au format ReStructuredText et réciproquement.
 
-
-========================================================
-
---------------------------------------------------------
-
-________________________________________________________
-
+________________________________________________
 
 Objectifs de réalisations & Contraintes
----------------------------------------
+=======================================
 
 - Concernant la classe :
 Les conversions doivent être symétriques (A -> B -> A). Probablement délicat.
@@ -47,11 +41,11 @@ Les conversions doivent être symétriques (A -> B -> A). Probablement délicat.
 Après seulement, nous pourrons réaliser des commits de notre propre code.
 
 - l'arborescence du dépôt doit être :  
-        eZXML-To-RST-Converter
-            ./src
-            ./test
-            ./doc
-            ./lib 
+        eZXML-To-RST-Converter  
+            ./src  
+            ./test  
+            ./doc  
+            ./lib   
 
 Dans ./lib nous y mettrons le composant Base et le composant Document des eZ Components.
 
@@ -73,15 +67,18 @@ Les éventuels fichiers pour les tests doivent être dans le dossier test, comme
 - Objectif secondaire :
 Nous aurons également un objectif secondaire : réaliser rst2pdf.php. Il faudra également un rapport quotidien. Nous commencerons l'objectif secondaire après avoir commencé l'objectif principal et bien cerné les problématiques initiales.
 
-Mode opératoire :
------------------
+Mode opératoire
+===============
 On fonctionnera en x temps : d'abord ..., puis ensuite ....
 
-Repository du projet :
-----------------------
+Repository du projet
+====================
 https://github.com/atierant/eZXML-To-RST-Converter
 
 =================================================
+
+Documentation
+=============
 
 Documentation sur les langages de balisage
 ------------------------------------------
@@ -104,25 +101,21 @@ ReStructuredText (RST) est un langage de balisage simple et cohérent, destiné 
 
 Documentation de Document :
 ---------------------------
-http://ezcomponents.org/docs/api/latest/introduction_Document.html
+http://ezcomponents.org/docs/api/latest/introduction_Document.html  
 
 Documentation de la partie conversion
 -------------------------------------
-http://ezcomponents.org/docs/api/trunk/Document_conversion.html
-
-This document aims to document a list of semantic markup elements, which can not be converted into one or another markup language, so you have to expect loss in the semantic document information during conversions.
-
-Ce document vise à documenter une liste d'éléments de balisage sémantique, qui ne peuvent pas être convertis en un ou l'autre langage de balisage, de sorte que vous devez vous attendre la perte dans le document d'information sémantique lors de conversions.
+http://ezcomponents.org/docs/api/trunk/Document_conversion.html  
 
 Documentation sur la classe générique ezcDocumentConverter
 ----------------------------------------------------------
-http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentConverter.html
+http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentConverter.html  
 
 A base class for document type converters
 
 Documentation sur la classe de conversion ezcDocumentElementVisitorConverter
 ----------------------------------------------------------------------------
-http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentElementVisitorConverter.html
+http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentElementVisitorConverter.html  
 Basic converter which stores a list of handlers for each node in the docbook element tree. Those handlers will be executed for the elements, when found.
 The handler can then handle the repective subtree.
 Additional handlers may be added by the user to the converter class.
