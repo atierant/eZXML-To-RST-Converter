@@ -1,6 +1,8 @@
 ezcDocumentEzXmlToRstConverter
 ==============================
 
+Avancée du projet : cf. /doc/Done.md
+
 Principe de base
 ================
 
