@@ -49,9 +49,7 @@ Après seulement, nous pourrons réaliser des commits de notre propre code.
 
 Dans ./lib nous y mettrons le composant Base et le composant Document des eZ Components.  
 
-/!\ AMBIGUITE DES PROPOS. [ToDo]  
-Dans ./lib également : "Une classe, deux méthodes". Avec cette classe, nous ferons un script qui transforme un eZXML en RST et un autre qui transforme un RST en eZXML.  
-La classe doit être située dans ./eZXML-To-RST-Converter/src/  
+Dans ./src : "Une classe, deux méthodes". Avec cette classe, nous ferons un script qui transforme un eZXML en RST et un autre qui transforme un RST en eZXML.  
 
 Le code doit n'utiliser que les composants situés dans ./lib, comme si les ezc n'étaient pas installés sur la machine.  
 
@@ -161,6 +159,12 @@ To Do :
 1. Premièrement, prise de connaissance du composant Document.
 
 2. Documenter l'existant :
+    + comment ça fonctionn
+    + transfo avec ce qui existe deja
+
+a partir de maintenant j'au vu ça, je fais ça'
+
+
     + Définitions et explication des langages de balisage
     + Principe du composant Document
     + Langages de balisage pris en charge dans le composant Document
