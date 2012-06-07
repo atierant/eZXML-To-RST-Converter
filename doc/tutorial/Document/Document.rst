@@ -278,7 +278,6 @@ XHTML
 XHTML can only be generated from RST, but not converted from or to docbook yet.
 
 
-
 ..
    Local Variables:
    mode: rst
