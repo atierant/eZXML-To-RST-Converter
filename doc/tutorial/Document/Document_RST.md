@@ -347,7 +347,9 @@ Conversion :
         $result = $rst->save();
 
 Les handlers sont affectés à des éléments XML dans certains espaces de noms, "docbook" dans notre cas. On voit la déclaration de cet espace de noms à la ligne suivante :  
-        $converter->setElementHandler( 'docbook', 'address', new myAddressElementHandler() );
+
+        $converter->setElementHandler( 'docbook', 'address', new myAddressElementHandler() );  
+
 La classe doit hériter de la classe ezcDocumentElementVisitorHandler, classe dont hérite déjà ezcDocumentDocbookToRstBaseHandler, qui fournit des méthodes pratiques pour la création de RST, comme renderDirective() utilisée dans notre exemple.  
 
 Le gestionnaire est appelé dès que l'élément est trouvé dans l'arbre XML DocBook. Dans ce cas, il ajoute au document RST la partie RST générée pour cet élément et peut appeler le handler de conversion général à nouveau pour ses éléments enfants.  
