@@ -1,0 +1,9 @@
+My document
+===========
+
+The custom directive:
+
+.. my_directive:: parameters
+    :option: value
+
+    Some indented text...
