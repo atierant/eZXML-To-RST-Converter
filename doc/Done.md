@@ -1,3 +1,14 @@
+08 Juin 2012
+============
+
+        + Reprise du tuto _RST_ de _Document_
+
+cf. /src/tutorial/ezc/Document/RST/
+cf. /doc/tutorial/Document/RST/
+
+J'ai effectué et rédigé le tutorial concernant la manipulation des fichiers RST et leur transformation en Docbook & XHTML.
+J'ai également appris à ajouter des directives de transformation et à créer des directives d'écriture d'un document XML en RST.
+
 07 Juin 2012
 ============
 
