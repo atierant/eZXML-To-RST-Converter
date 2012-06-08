@@ -246,7 +246,7 @@ Il est possible de modifier la sortie générée du visiteur XHTML en créant un
 
 La structure, non adaptée pour les visiteurs standards mais utilisée dans les visiteurs docbook et XHTML, appelle des méthodes spéciales pour chaque type de nœud dans l'AST pour _décorer_ l'AST de manière récursive. La méthode visitBulletList() sera appelée pour tous les nœuds de type _liste à puces_ dans l'AST qui contient les éléments de cette liste. La position courante dans l'arbre DOM XHTML est passée en paramètres de la méthode.  
 
-Pour créer le XHTML, nous créons un nouveau nœud (nouvelle liste (<ul>)) dans le DOMNode actuel, on définit le nouvel attribut, et on décore récursivement tous les descendants de ce nœud en utilisant la méthode générale visitNode() pour tous les enfants dans l'AST.  
+Pour créer le XHTML, nous créons un nouveau nœud (nouvelle liste (\<ul \>)) dans le DOMNode actuel, on définit le nouvel attribut, et on décore récursivement tous les descendants de ce nœud en utilisant la méthode générale visitNode() pour tous les enfants dans l'AST.  
 Pour que les enfants dans l'AST soient également rendus comme des enfants dans l'arbre XML, nous passons le DOMNode que nous venons de créer (<ul>) en tant que nouveau nœud racine en paramètres de la méthode visitNode().  
 
 Une fois cette nouvelle classe définie, nous pouvons utiliser le visiteur personnalisé comme indiqué ci-après :  
