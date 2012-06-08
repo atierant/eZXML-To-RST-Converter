@@ -167,7 +167,7 @@ Le document de sortie généré :
         
 cf. résultat dans le fichier 03_convert_with_directive_rst_docbook_result.xml  
 
-_04_Rendu XHTML :_  
+_04 Rendu XHTML :_  
 
 Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à ne pas avoir besoin de convertir le RST en Docbook puis le Docbook en XHTML. Cela économise du temps de conversion et permet d'empêcher la perte d'informations pendant les conversions multiples:
 
@@ -182,7 +182,7 @@ Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à n
 
 cf. résultat dans le fichier 04_convert_rst_to_xhtml.html  
 
-_05_Rendu XHTML + Header :_  
+_05 Rendu XHTML + Header :_  
 
 On remarquera l'en-tête du fichier précédemment généré :
 
@@ -214,5 +214,32 @@ cf. résultat dans le fichier 05_convert_rst_to_xhtml_block.html
 
 Il est également possible d'utiliser les directives prédéfinies et personnalisées pour le rendu XHTML. Les directives utilisées lors de la génération du XHTML doivent implémenter l'interface ezcDocumentRstXhtmlDirective (http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentRstXhtmlDirective.html)
 
+_06 Modification du rendu XHTML :_  
 
+Il est possible de modifier la sortie générée du visiteur XHTML en créant une classe visiteur personnalisée pour l'AST du RST. La façon la plus simple est probablement d'hériter de l'un des visiteurs XHTML existants et de le réutiliser. Par exemple, on peut corriger l'attribut _'type'_ dans les listes à puces, comme en HTML, attribut qui n'est pas valide en XHTML. On procèdera de la manière suivante :
 
+        class myDocumentRstXhtmlVisitor extends ezcDocumentRstXhtmlVisitor
+        {
+            protected function visitBulletList( DOMNode $root, ezcDocumentRstNode $node )
+            {
+                $list = $this->document->createElement( 'ul' );
+                $root->appendChild( $list );
+
+                $listTypes = array(
+                    '*'            => 'circle',
+                    '+'            => 'disc',
+                    '-'            => 'square',
+                    "\xe2\x80\xa2" => 'disc',
+                    "\xe2\x80\xa3" => 'circle',
+                    "\xe2\x81\x83" => 'square',
+                );
+                // Not allowed in XHTML strict
+                $list->setAttribute( 'type', $listTypes[$node->token->content] );
+
+                // Decoratre blockquote contents
+                foreach ( $node->nodes as $child )
+                {
+                    $this->visitNode( $list, $child );
+                }
+            }
+        }
