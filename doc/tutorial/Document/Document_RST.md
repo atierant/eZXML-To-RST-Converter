@@ -109,5 +109,43 @@ La directive implémentée prend ces informations et les transforme en un docboo
             }
         }
         ?>
+        
 
+Le nœud AST généré est passé au constructeur de la classe qui visite la directive personnalisée. Il est disponible dans la propriété de la classe $node.  
+Le document DOM complet et le nœud DOM courant sont transmis à la méthode.  
+Dans notre cas, nous créons un nœud _adress_ avec les noeuds enfants facultatifs _street_ et _personname_, en fonction de l'existence des valeurs respectives.
 
+You can now render the RST document after you registered you custom directive handler as shown above:
+
+Après avoir mis en place la directive personnalisée et son handler, on traite le document RST :
+
+        <?php
+        require 'tutorial_autoload.php';
+        // Load custom directive
+        require '00_01_address_directive.php';
+        $document = new ezcDocumentRst();
+        $document->registerDirective( 'address', 'myAddressDirective' );
+        $document->loadString( <<<EORST
+        Address example
+        ===============
+        .. address:: John Doe
+        :street: Some Lane 42
+        EORST
+        );
+        $docbook = $document->getAsDocbook();
+        echo $docbook->save();
+        ?>
+
+Le document de sortie généré :
+
+        <?xml version="1.0"?>
+        <article xmlns="http://docbook.org/ns/docbook">
+          <section id="address_example">
+            <sectioninfo/>
+            <title>Address example</title>
+            <address>
+              <personname> John Doe</personname>
+              <street> Some Lane 42</street>
+            </address>
+          </section>
+        </article>
