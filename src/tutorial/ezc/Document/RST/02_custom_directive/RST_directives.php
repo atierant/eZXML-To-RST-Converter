@@ -2,6 +2,10 @@
 
 require_once './src/tutorial/autoload.php';
 
+
+// Load custom directive
+require dirname(__FILE__).'/CustomDirective.php';
+
 // The document is actually loaded and parsed into an internal abstract syntax tree
 $document = new ezcDocumentRst();
 
@@ -16,4 +20,9 @@ $docbook = $document->getAsDocbook();
 
 // The resulting document is returned as a string, stored in a $xml variable
 $xml = $docbook->save();
+
+// We store it in a new file
+$myDocbookResult = fopen(dirname(__FILE__).'/02_convert_with_directives_rst_docbook_result.xml', 'a+');
+fputs($myDocbookResult, $xml );
+fclose($myDocbookResult);
 ?> 

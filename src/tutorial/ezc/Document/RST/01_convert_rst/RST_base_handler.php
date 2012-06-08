@@ -17,6 +17,6 @@ $docbook = $document->getAsDocbook();
 // echo $docbook->save();
 
 // We store it in a new file
-$myDocbookResult = fopen(dirname(__FILE__).'/00_00_convert_rst_docbook_result.xml', 'a+');
+$myDocbookResult = fopen(dirname(__FILE__).'/01_convert_rst_docbook_result.xml', 'a+');
 fputs($myDocbookResult, $docbook->save() );
 fclose($myDocbookResult);

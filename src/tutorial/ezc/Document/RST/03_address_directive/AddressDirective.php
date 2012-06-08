@@ -1,5 +1,4 @@
 <?php
-
 class myAddressDirective extends ezcDocumentRstDirective
 {
     public function toDocbook( DOMDocument $document, DOMElement $root )
@@ -18,4 +17,3 @@ class myAddressDirective extends ezcDocumentRstDirective
         }
     }
 }
-?> 

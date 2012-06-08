@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article xmlns="http://docbook.org/ns/docbook">
+  <section ID="my_document">
+    <title>My document</title>
+    <para>The custom directive:</para>
+    <my_directive>
+      <parameters>perso_parameters</parameters>
+      <option>perso_value</option>
+    </my_directive>
+  </section>
+</article>
