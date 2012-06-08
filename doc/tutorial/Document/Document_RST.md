@@ -149,3 +149,29 @@ Le document de sortie généré :
             </address>
           </section>
         </article>
+        
+
+_00_03_Rendu XHTML :_  
+
+Un raccourci de conversion d'un RST en XHTML a été mis en œuvre, de sorte à ne pas avoir besoin de convertir le RST en Docbook puis le Docbook en XHTML. Cela économise du temps de conversion et permet d'empêcher la perte d'informations pendant les conversions multiples:
+
+        <?php
+        $document = new ezcDocumentRst();
+        $document->loadFile( $from );
+        $xhtml = $document->getAsXhtml();
+        $xml = $xhtml->save();
+        ?>
+
+Le compilateur XHTML par défaut génère des documents XHTML complets, y compris l'en-tête et les méta-données qui s'y trouvent. On peut spécifier un autre compilateur XHTML pour un rendu différent, ce qui crée tout simplement un élément XHTML block level, qui peut être intégré dans un code source.
+
+        <?php
+        $document = new ezcDocumentRst();
+        $document->options->xhtmlVisitor = 'ezcDocumentRstXhtmlBodyVisitor';
+        $document->loadFile( $from );
+        $xhtml = $document->getAsXhtml();
+        $xml = $xhtml->save();
+        ?>
+        
+
+Il est également possible d'utiliser les directives prédéfinies et personnalisées pour le rendu XHTML. Les directives utilisées lors de la génération du XHTML doivent implémenter l'interface ezcDocumentRstXhtmlDirective (http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentRstXhtmlDirective.html)
+
