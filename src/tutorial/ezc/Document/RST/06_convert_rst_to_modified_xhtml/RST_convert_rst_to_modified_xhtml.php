@@ -3,16 +3,17 @@
 require_once './src/tutorial/autoload.php';
 $document = new ezcDocumentRst();
 
-// Specify that we only want an in-line xhtml block.
-$document->options->xhtmlVisitor = 'ezcDocumentRstXhtmlBodyVisitor';
+// Load custom Visitor
+require dirname(__FILE__).'/myDocumentRstXhtmlVisitor.php';
+
+// We define the option xhtmlVisitor with our new visitor class
+$document->options->xhtmlVisitor = 'myDocumentRstXhtmlVisitor';
 
 $document->loadFile( dirname(__FILE__).'/rst_document.rst' );
-
-// The internal structure is then transformed to a xhtml document
 $xhtml = $document->getAsXhtml();
 $xml = $xhtml->save();
 
 // We store it in a new file
-$myDocbookResult = fopen(dirname(__FILE__).'/05_convert_rst_to_xhtml_block.html', 'a+');
-fputs($myDocbookResult, $xml );
-fclose($myDocbookResult);
+$myXhtmlResult = fopen(dirname(__FILE__).'/06_convert_rst_to_modified_xhtml.html', 'a+');
+fputs($myXhtmlResult, $xml );
+fclose($myXhtmlResult);

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="generator" content="eZ Components; http://ezcomponents.org" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><style type="text/css">body {
+	background-color: #ffffff;
+	color: #2e3436;
+	font-family: sans-serif;
+}
+
+a {
+	color: #3456a4
+}
+
+a:hover {
+	color: #729fcf;
+}
+
+a:visited {
+	color: #204a87;
+}
+
+a.footnote {
+	vertical-align: super;
+}
+
+p {
+	margin: 0.5em 0em 1em 0em;
+}
+
+hr {
+	background-color: #204a87;
+	border: none;
+	height: 1px;
+}
+
+pre {
+	background-color: #eeeeef;
+	font-family: monospace;
+}
+
+table {
+	border: 1px solid #babdb6;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+thead td,
+thead th {
+	background-color: #eeeeef;
+	text-align: center;
+	font-weight: bold;
+}
+
+tbody td {
+	border: 1px solid #babdb6;
+}
+
+blockquote p:before,
+blockquote p:after {
+	content: '"';
+}
+
+blockquote p {
+	margin-bottom: .5em;
+}
+
+blockquote cite {
+	margin-left: 1em;
+	color: #555753;
+}
+
+div.image,
+div.figure {
+	margin: 1em;
+	padding: 1px;
+	border: 1px solid #babdb6;
+}
+
+div.image img,
+div.figure img {
+	margin: 0px auto;
+}
+
+div.image p,
+div.figure p {
+	margin: 0em;
+	font-size: 90%;
+	color: #555753;
+}
+
+p.note {
+	margin-left: 2em;
+	padding: .2em;
+	border: 1px solid #8ae234;
+}
+
+p.notice {
+	margin-left: 2em;
+	padding: .2em;
+	border: 1px solid #4e9a06;
+}
+
+p.warning {
+	margin-left: 2em;
+	padding: .2em;
+	border: 1px solid #ce5c00;
+}
+
+p.attention {
+	margin-left: 2em;
+	padding: .2em;
+	border: 1px solid #a40000;
+}
+
+p.danger {
+	margin-left: 2em;
+	padding: .2em;
+	border: 2px solid #a40000;
+}
+</style><title>eZ Components - Document</title></head><body><h1><a name="ez_components_-_document" id="ez_components_-_document"></a>eZ Components - Document</h1><div class="toc"><div class="toc-header"> Table of Contents</div><ul><li><a href="#introduction">Introduction</a></li><li><a href="#markup_languages">Markup languages</a><ul><li><a href="#restructured_text">ReStructured text</a></li></ul></li></ul></div><h2><a name="introduction" id="introduction"></a>Introduction</h2><p>The document component offers transformations between different semantic markup languages, like:</p><ul type="square"><li><p><a href="http://docutils.sourceforge.net/rst.html">ReStructured text</a></p></li><li><p><a href="http://www.w3.org/TR/xhtml1/">XHTML</a></p></li><li><p><a href="http://www.docbook.org/">Docbook</a></p></li><li><p>eZ Publish XML markup</p></li></ul><p>Where each format support conversions from and to docbook as a central intermediate format and may implement additional shortcuts for conversions from and to other formats. Not each format can express the same semantics, so there may be some information lost, which is <a href="Document_conversion.html">documented in a dedicated document</a>.</p><p>There are central handler classes for each markup language, which follow a common conversion interface ezcDocument and all implement the methods getAsDocbook() and createFromDocbook().</p><h2><a name="markup_languages" id="markup_languages"></a>Markup languages</h2><p>The following markup languages are currently handled by the document component.</p><h3><a name="restructured_text" id="restructured_text"></a>ReStructured text</h3></body></html>

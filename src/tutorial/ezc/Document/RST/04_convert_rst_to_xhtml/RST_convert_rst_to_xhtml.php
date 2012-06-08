@@ -9,6 +9,6 @@ $xhtml = $document->getAsXhtml();
 $xml = $xhtml->save();
 
 // We store it in a new file
-$myDocbookResult = fopen(dirname(__FILE__).'/04_convert_rst_to_xhtml.html', 'a+');
-fputs($myDocbookResult, $xml );
-fclose($myDocbookResult);
+$myXhtmlResult = fopen(dirname(__FILE__).'/04_convert_rst_to_xhtml.html', 'a+');
+fputs($myXhtmlResult, $xml );
+fclose($myXhtmlResult);

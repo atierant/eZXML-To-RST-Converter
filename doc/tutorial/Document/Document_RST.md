@@ -123,7 +123,7 @@ La directive implémentée prend ces informations et les transforme en un docboo
         }
 
 Le nœud AST généré est passé au constructeur de la classe qui visite la directive personnalisée. Il est disponible dans la propriété de la classe $node. Le document DOM complet et le nœud DOM courant sont transmis à la méthode.  
-Dans notre cas, nous créons un nœud _adress_ avec les noeuds enfants facultatifs _street_ et _personname_, en fonction de l'existence des valeurs respectives. Après avoir mis en place la directive personnalisée et son handler, on traite le document RST :
+Dans notre cas, nous créons un nœud _adress_ avec les noeuds enfants facultatifs _street_ et _personname_, en fonction de l'existence des valeurs respectives. Après avoir mis en place la directive personnalisée et son handler, on traite le document RST :  
 
         <?php
 
@@ -169,7 +169,7 @@ cf. résultat dans le fichier 03_convert_with_directive_rst_docbook_result.xml
 
 _04 Rendu XHTML :_  
 
-Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à ne pas avoir besoin de convertir le RST en Docbook puis le Docbook en XHTML. Cela économise du temps de conversion et permet d'empêcher la perte d'informations pendant les conversions multiples:
+Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à ne pas avoir besoin de convertir le RST en Docbook puis le Docbook en XHTML. Cela économise du temps de conversion et permet d'empêcher la perte d'informations pendant les conversions multiples :  
 
         <?php
         require_once './src/tutorial/autoload.php';
@@ -184,7 +184,7 @@ cf. résultat dans le fichier 04_convert_rst_to_xhtml.html
 
 _05 Rendu XHTML + Header :_  
 
-On remarquera l'en-tête du fichier précédemment généré :
+On remarquera l'en-tête du fichier précédemment généré :  
 
         <head>
             <meta content="eZ Components; http://ezcomponents.org" name="generator">
@@ -195,7 +195,7 @@ On remarquera l'en-tête du fichier précédemment généré :
             <meta content="" name="literal">
         </head>
 
-Le compilateur XHTML par défaut génère des documents XHTML complets, y compris l'en-tête et les méta-données qui s'y trouvent. On peut spécifier un autre compilateur XHTML pour un rendu différent, juste le corps par exemple, ce qui crée tout simplement un élément XHTML block-level, qui peut être intégré dans un code source.
+Le compilateur XHTML par défaut génère des documents XHTML complets, y compris l'en-tête et les méta-données qui s'y trouvent. On peut spécifier un autre compilateur XHTML pour un rendu différent, juste le corps par exemple, ce qui crée tout simplement un élément XHTML block-level, qui peut être intégré dans un code source.  
 
         <?php
         require_once './src/tutorial/autoload.php';
@@ -212,11 +212,11 @@ Le compilateur XHTML par défaut génère des documents XHTML complets, y compri
         
 cf. résultat dans le fichier 05_convert_rst_to_xhtml_block.html  
 
-Il est également possible d'utiliser les directives prédéfinies et personnalisées pour le rendu XHTML. Les directives utilisées lors de la génération du XHTML doivent implémenter l'interface ezcDocumentRstXhtmlDirective (http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentRstXhtmlDirective.html)
+Il est également possible d'utiliser les directives prédéfinies et personnalisées pour le rendu XHTML. Les directives utilisées lors de la génération du XHTML doivent implémenter l'interface ezcDocumentRstXhtmlDirective (http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentRstXhtmlDirective.html)  
 
 _06 Modification du rendu XHTML :_  
 
-Il est possible de modifier la sortie générée du visiteur XHTML en créant une classe visiteur personnalisée pour l'AST du RST. La façon la plus simple est probablement d'hériter de l'un des visiteurs XHTML existants et de le réutiliser. Par exemple, on peut corriger l'attribut _'type'_ dans les listes à puces, comme en HTML, attribut qui n'est pas valide en XHTML. On procèdera de la manière suivante :
+Il est possible de modifier la sortie générée du visiteur XHTML en créant une classe visiteur personnalisée pour l'AST du RST. La façon la plus simple est probablement d'hériter de l'un des visiteurs XHTML existants et de le réutiliser. Par exemple, on peut corriger l'attribut _'type'_ dans les listes à puces, comme en HTML, attribut qui n'est pas valide en XHTML. On procèdera de la manière suivante :  
 
         class myDocumentRstXhtmlVisitor extends ezcDocumentRstXhtmlVisitor
         {
@@ -243,3 +243,117 @@ Il est possible de modifier la sortie générée du visiteur XHTML en créant un
                 }
             }
         }
+
+La structure, non adaptée pour les visiteurs standards mais utilisée dans les visiteurs docbook et XHTML, appelle des méthodes spéciales pour chaque type de nœud dans l'AST pour _décorer_ l'AST de manière récursive. La méthode visitBulletList() sera appelée pour tous les nœuds de type _liste à puces_ dans l'AST qui contient les éléments de cette liste. La position courante dans l'arbre DOM XHTML est passée en paramètres de la méthode.  
+
+Pour créer le XHTML, nous créons un nouveau nœud (nouvelle liste (<ul>)) dans le DOMNode actuel, on définit le nouvel attribut, et on décore récursivement tous les descendants de ce nœud en utilisant la méthode générale visitNode() pour tous les enfants dans l'AST.  
+Pour que les enfants dans l'AST soient également rendus comme des enfants dans l'arbre XML, nous passons le DOMNode que nous venons de créer (<ul>) en tant que nouveau nœud racine en paramètres de la méthode visitNode().  
+
+Une fois cette nouvelle classe définie, nous pouvons utiliser le visiteur personnalisé comme indiqué ci-après :  
+
+        <?php
+        require_once './src/tutorial/autoload.php';
+        $document = new ezcDocumentRst();
+
+        // Load custom Visitor
+        require dirname(__FILE__).'/myDocumentRstXhtmlVisitor.php';
+
+        // We define the option xhtmlVisitor with our new visitor class
+        $document->options->xhtmlVisitor = 'myDocumentRstXhtmlVisitor';
+
+        $document->loadFile( dirname(__FILE__).'/rst_document.rst' );
+        $xhtml = $document->getAsXhtml();
+        $xml = $xhtml->save();
+
+Les listes présentes dans le XHTML généré auront alors l'attribut _'type'_ défini.  
+cf. résultat dans le fichier 06_convert_rst_to_modified_xhtml.html  
+
+_07 Ecriture d'un document RST :_  
+
+La rédaction d'un document de RST à partir d'un document DocBook existant, ou un objet ezcDocumentDocbook généré à partir d'une autre source, est triviale :
+
+        <?php
+        require_once './src/tutorial/autoload.php';
+
+        // Loading the document in Docbook format
+        $docbook = new ezcDocumentDocbook();
+        $docbook->loadFile( dirname(__FILE__).'/docbook.xml' );
+
+        // Converting to RST
+        $rst = new ezcDocumentRst();
+        $rst->createFromDocbook( $docbook );
+        $result = $rst->save();
+        
+cf. résultat dans le fichier 07_writing_rst.rst  
+
+La classe ezcDocumentDocbookToRstConverter est utilisée pour la conversion en interne. Elle peut également être appelée directement :  
+
+        $converter = new ezcDocumentDocbookToRstConverter();
+        $rst = $converter->convert( $docbook );
+
+En utilisant cette classe, on peut configurer le convertisseur à notre guise, ou hériter du convertisseur pour gérer les éléments docbook encore non gérés. Le convertisseur est configuré en utilisant sa propriété option. Les options sont définies dans la classe ezcDocumentDocbookToRstConverterOptions. Nous pouvons par exemple configurer l'en-tête utilisée, les types de listes à puces ou le retour à la ligne.  
+
+_08 Etendre l'écriture d'un document RST :_  
+
+Comme dit précédemment, tous les éléments docbook existants ne sont pas encore manipulés par le convertisseur. Mais son mécanisme  basé sur les handlers permet d'étendre ou de remplacer facilement le comportement existant.  
+Reprenons l'exemple précédent sur les adresses. Nous pouvons convertir l'élément docbook <adresse> selon la directive RST inverse _adresse_.
+
+Mon fichier adress.xml
+
+        <?xml version="1.0"?>
+        <article xmlns="http://docbook.org/ns/docbook">
+          <section id="address_example">
+            <sectioninfo/>
+            <title>Address example</title>
+            <address>
+              <personname> John Doe</personname>
+              <street> Some Lane 42</street>
+            </address>
+          </section>
+        </article>
+
+Ma classe myAddressElementHandler
+
+        <?php
+        class myAddressElementHandler extends ezcDocumentDocbookToRstBaseHandler
+        {
+            public function handle( ezcDocumentElementVisitorConverter $converter, DOMElement $node, $root )
+            {
+                $root .= $this->renderDirective( 'address', $node->textContent, array() );
+                return $root;
+            }
+        }
+
+Conversion :
+
+        <?php
+        require_once './src/tutorial/autoload.php';
+
+        // Loading the document in Docbook format
+        $docbook = new ezcDocumentDocbook();
+        $docbook->loadFile( dirname(__FILE__).'/address.xml' );
+
+        // Load custom AddressElementHandler
+        require dirname(__FILE__).'/myAddressElementHandler.php';
+
+        // Converting to RST
+        $rst = new ezcDocumentRst();
+
+        // Creating the handler
+        $converter = new ezcDocumentDocbookToRstConverter();
+        $converter->setElementHandler( 'docbook', 'address', new myAddressElementHandler() );
+
+        $rst = $converter->convert( $docbook );
+        $result = $rst->save();
+
+Rendu RST (cf. fichier 08_writing_extended_rst.rst)
+
+        ===============
+        Address example
+        ===============
+
+        .. address:: 
+               John Doe
+               Some Lane 42
+
+
