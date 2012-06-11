@@ -8,7 +8,7 @@ http://ezcomponents.org/docs/tutorials/Document#ez-xml
 http://ez.no/doc/ez_publish/technical_manual/4_0/reference/xml_tags  
 
 eZ XML décrit le format de balisage utilisé en interne par eZ Publish pour stocker les données balisées dans des objets spécifiques. Le format est (peu) documenté dans la documentation de eZ Publish.  
-Les modules étant souvent personnalisés, et non documentés, donc il pourrait y avoir plusieurs éléments ne sont pas considérés par défaut.
+Les modules étant souvent personnalisés, et non documentés, il pourrait y avoir des éléments qui ne sont pas considérés par défaut.
 
 Suivi du tutorial
 -----------------

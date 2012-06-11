@@ -13,7 +13,7 @@ _Perte lors de conversion en Docbook_
 
 - _Strong emphasis_
 
-Il n'ya pas de balisage concernant la balise _strong emphasis_ en Docbook. Ceci est converti en \<emphasis role="strong"/\> pour conserver la valeur. Cependant, le rôle peut être perdu lors de conversions supplémentaires.
+Il n'ya pas de balisage concernant la balise _strong emphasis_ en Docbook. Ceci est converti en \<emphasis role="strong" /\> pour conserver la valeur. Cependant, le rôle peut être perdu lors de conversions supplémentaires.
 
 - _Table colspan_
 
@@ -45,7 +45,7 @@ XHTML autorise seulement une spécification des niveaux d'en-tête de 1 à 6. To
 
 - _Blockquote annotations_
 
-Il n'y a aucun élément XHTML pour les annotations blockquote. Ils sont alors transformés en éléments \<div class="annotation"/\> contenant des éléments <cite>, qui peuvent être considérés comme une citation. Cette information peut dès lors être perdue au cours d'un traitement ultérieur. L'attribut _cite_ des _blockquote_ ne peut accepter que des _URI_.
+Il n'y a aucun élément XHTML pour les annotations blockquote. Ils sont alors transformés en éléments \<div class="annotation" /\> contenant des éléments <cite>, qui peuvent être considérés comme une citation. Cette information peut dès lors être perdue au cours d'un traitement ultérieur. L'attribut _cite_ des _blockquote_ ne peut accepter que des _URI_.
 
 - _Bullet list & ordered list_
 
