@@ -56,7 +56,7 @@ Mon fichier au format eZ XML : myEZXMLFile.xml
             <paragraph>Some content, with a <link url_id="1">link</link>.</paragraph>
         </section>
 
-Ma classe myAddressElementHandler (héritant de ezcDocumentEzXmlLinkProvider) :  
+Ma classe myLinkProvider (héritant de ezcDocumentEzXmlLinkProvider) :  
 
         <?php
         class myLinkProvider extends ezcDocumentEzXmlLinkProvider
@@ -75,7 +75,7 @@ Ma classe myAddressElementHandler (héritant de ezcDocumentEzXmlLinkProvider) :
             }
         }
 
-Le fournisseur de lien est implémenté ici de manière triviale et arbitraire. Dans la réalité, on peut établir une connexion à la base de données d'eZ Publish pour y récupérer les véritables données requises.  
+Le fournisseur de lien est implémenté ici de manière triviale et arbitraire. Dans la réalité, on peut établir une connexion à la base de données d'eZ Publish pour y récupérer les véritables données requises. J'aurais pu également utiliser arbitrairement la classe _ezcDocumentEzXmlDummyLinkProvider_ de faux remplacement des URL, classe issue du framework _Document_ et héritant également de _ezcDocumentEzXmlLinkProvider_, mais pour cet exemple j'ai préféré utiliser notre propre classe. Je procèderai différemment pour l'exemple d'écriture d'un fichier eZ XML, afin de voir les différentes possibilités.
 
 Conversion avec manipulation des liens :  
 
@@ -88,8 +88,6 @@ Conversion avec manipulation des liens :
 
         // The document is actually loaded and parsed into an internal abstract syntax tree
         $document = new ezcDocumentEzXml();
-
-        // The document is actually loaded and parsed into an internal abstract syntax tree
         $document->loadFile( dirname(__FILE__).'/myEZXMLFile.xml' );
 
         // Set link provider
@@ -117,11 +115,11 @@ Cet exemple convertit le eZ XML _myEZXMLFile.xml_ ci-dessus en _Docbook_:
 
 cf. fichier 02_eZXML_link_handling_result.xml  
 
-On notera que le fournisseur de liens est défini comme une option du convertisseur, comme vu dans le chapitre sur les RST. On peut, tout comme dans le convertisseur pour les RST, créer des handlers pour des éléments eZ XML eZ qui ne sont pas encore supportés.  
+On notera que le fournisseur de liens est défini comme une option du convertisseur, comme vu dans le chapitre sur les RST. On peut, tout comme dans le convertisseur pour les RST, créer des handlers pour des éléments eZ XML qui ne sont pas encore supportés.  
 
 _03 Ecriture d'un document eZ XML :_  
 
-Pour écrire un fichier _eZ XML_ on utilise un élément de transition _Docbook_ basé sur du XML, comme indiqué plus en détail dans la conversion _Docbook_ vers _RST_. Pour la conversion des liens, on utilise un objet qui hérite de _ezcDocumentEzXmlLinkConverter_. Cet objet retourne un tableau avec les attributs du lien présent dans le document _eZ XML_.  
+Pour écrire un fichier _eZ XML_ on utilise un élément de transition _Docbook_ basé sur du XML, comme indiqué plus en détail dans la conversion _Docbook_ vers _RST_. Pour la conversion des liens, on utilise un objet qui hérite de _ezcDocumentEzXmlLinkConverter_. Cet objet retourne un tableau avec les attributs du lien dans le nouveau document _eZ XML_.  
 
 Mon fichier au format _Docbook_ : _myDocbookFile.xml_  
 

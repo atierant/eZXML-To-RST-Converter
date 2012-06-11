@@ -7,8 +7,6 @@ require dirname(__FILE__).'/MyLinkProvider.php';
 
 // The document is actually loaded and parsed into an internal abstract syntax tree
 $document = new ezcDocumentEzXml();
-
-// The document is actually loaded and parsed into an internal abstract syntax tree
 $document->loadFile( dirname(__FILE__).'/myEZXMLFile.xml' );
 
 // Set link provider
