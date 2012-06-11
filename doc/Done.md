@@ -1,10 +1,24 @@
+11 Juin 2012
+============
+
+        + Rédaction du tuto _eZ XML_ de _Document_
+
+cf. /src/tutorial/ezc/Document/eZXML/
+cf. /doc/tutorial/Document/Document_eZ_Xml.md
+
+J'ai effectué et rédigé le tutorial concernant la manipulation des fichiers eZ XML et leur transformation en Docbook.
+J'ai également appris à transformer certains éléments pour conserver l'information, comme la transformation d'URL par exemple.
+
+D'autre part, j'ai identifié certains problèmes de conversion sémantique.
+cf. /doc/tutorial/Document/Document_Conversion.md
+
 08 Juin 2012
 ============
 
         + Reprise du tuto _RST_ de _Document_
 
 cf. /src/tutorial/ezc/Document/RST/
-cf. /doc/tutorial/Document/RST/
+cf. /doc/tutorial/Document/Document_RST.md
 
 J'ai effectué et rédigé le tutorial concernant la manipulation des fichiers RST et leur transformation en Docbook & XHTML.
 J'ai également appris à ajouter des directives de transformation et à créer des directives d'écriture d'un document XML en RST.
