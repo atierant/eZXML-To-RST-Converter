@@ -1,7 +1,7 @@
 Tutorial du composant _Document_ - Partie Conversion
 ====================================================
 
-Conversion
+Conversion 
 ----------
 
 Ce document vise à dresser une liste des éléments de balisage sémantiques spécifiques, ne pouvant pas être convertis en un autre langage de balisage. On doit ainsi s'attendre à une perte de cette information sémantique, si non traitée manuellement, lors de conversions.
