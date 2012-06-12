@@ -10,7 +10,7 @@ XML block : http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Datatypes
 XML tags : http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/XML-tags  
 
 Je suis en cours de documentation (au format RST) du format eZ XML : son balisage, sa manipulation, sa sémentique...  
-Gist temporaire de travail : https://gist.github.com/9b401b94fbe6b685edb1  
+Gist temporaire de travail : https://gist.github.com/9b401b94fbe6b685edb1
 
 Découverte du logiciel de conversion de formats Pandoc : http://johnmacfarlane.net/pandoc/index.html  
 Approfondissement de la connaissance du format RST : http://docutils.sourceforge.net/docs/user/rst/quickref.html  
