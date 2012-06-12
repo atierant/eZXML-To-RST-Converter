@@ -3,7 +3,7 @@
 
         + Rédaction de la documentation sur le format _eZ XML_
 
-cf. /doc/tutorial/eZXML  
+cf. /doc/documentation/eZXML  
 
 sources :  
 XML block : http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Datatypes/XML-block  
