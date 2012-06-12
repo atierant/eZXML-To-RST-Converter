@@ -34,8 +34,6 @@ Les _line blocks_ et les _literal blocks_ sont convertis en éléments <literalb
 
 L'information concernant les _Bullet list tokens_ (listes à puces) est également omise lors de la conversion.
 
-------------------------------------------------------------------------------------
-
 ####_Perte lors de conversion en XHTML_
 
 - _Headers_
