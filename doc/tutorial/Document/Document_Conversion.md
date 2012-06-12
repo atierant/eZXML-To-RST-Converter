@@ -6,10 +6,10 @@ Conversion
 
 Ce document vise à dresser une liste des éléments de balisage sémantiques spécifiques, ne pouvant pas être convertis en un autre langage de balisage. On doit ainsi s'attendre à une perte de cette information sémantique, si non traitée manuellement, lors de conversions.
 
-Avec une source RST
--------------------
+#Avec une source RST
+--------------------
 
-_Perte lors de conversion en Docbook_
+##_Perte lors de conversion en Docbook_
 
 - _Strong emphasis_
 
@@ -37,7 +37,7 @@ L'information concernant les _Bullet list tokens_ (listes à puces) est égaleme
 
 ------------------------------------------------------------------------------------
 
-_Perte lors de conversion en XHTML_
+##_Perte lors de conversion en XHTML_
 
 - _Headers_
 

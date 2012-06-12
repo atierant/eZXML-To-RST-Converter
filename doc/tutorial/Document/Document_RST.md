@@ -12,7 +12,7 @@ ReStructuredText (RST) est un langage de balisage simple et cohérent, destiné 
 Suivi du tutorial
 -----------------
 
-_01 Transformation simple et chargement dans un fichier :_  
+#_01 Transformation simple et chargement dans un fichier :_  
 
         Arbre syntaxique abstrait
         
@@ -49,7 +49,7 @@ Nous pouvons alors éventuellement construire un fichier de sortie, cf. 01_conve
         fputs($myDocbookResult, $docbook->save() );
         fclose($myDocbookResult);
 
-_02 Directives personnalisées :_  
+#_02 Directives personnalisées :_  
 
 Les directives dans les documents RST sont des éléments optionnels pouvant contenir des paramètres, des options (nommées) et du contenu lui aussi optionnel.  
 Le composant _Document_ implémente un sous-ensemble de directives issues du parseur de documents docutils (http://docutils.sourceforge.net/).  
@@ -90,7 +90,7 @@ cf. résultat dans le fichier 02_convert_with_directives_rst_docbook_result.xml
 La classe myCustomDirective hérite de la classe ezcDocumentRstDirective, implémente la méthode de toDocbook().  
 Lors du traitement, nous avons accès à l'AST, au contenu de la directive actuelle et au chemin où se trouve le document dans le système de fichiers (nécessaire pour accéder à des fichiers externes).  
 
-_03 Exemple concret de directives :_  
+#_03 Exemple concret de directives :_  
 
 Voici un exemple complet d'une directive personnalisée. Nous voulons analyser des adresses dans notre document RST tout en maintenant la sémantique dans le docbook généré. Voici le fichier RST que l'on fournit :  
 
@@ -167,7 +167,7 @@ Le document de sortie généré :
         
 cf. résultat dans le fichier 03_convert_with_directive_rst_docbook_result.xml  
 
-_04 Rendu XHTML :_  
+#_04 Rendu XHTML :_  
 
 Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à ne pas avoir besoin de convertir le RST en Docbook puis le Docbook en XHTML. Cela économise du temps de conversion et permet d'empêcher la perte d'informations pendant les conversions multiples :  
 
@@ -182,7 +182,7 @@ Un raccourci de conversion d'un RST en XHTML a été implémenté, de sorte à n
 
 cf. résultat dans le fichier 04_convert_rst_to_xhtml.html  
 
-_05 Rendu XHTML + Header :_  
+#_05 Rendu XHTML sans Header :_  
 
 On remarquera l'en-tête du fichier précédemment généré :  
 
@@ -214,7 +214,7 @@ cf. résultat dans le fichier 05_convert_rst_to_xhtml_block.html
 
 Il est également possible d'utiliser les directives prédéfinies et personnalisées pour le rendu XHTML. Les directives utilisées lors de la génération du XHTML doivent implémenter l'interface ezcDocumentRstXhtmlDirective (http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentRstXhtmlDirective.html)  
 
-_06 Modification du rendu XHTML :_  
+#_06 Modification du rendu XHTML :_  
 
 Il est possible de modifier la sortie générée du visiteur XHTML en créant une classe visiteur personnalisée pour l'AST du RST. La façon la plus simple est probablement d'hériter de l'un des visiteurs XHTML existants et de le réutiliser. Par exemple, on peut corriger l'attribut _'type'_ dans les listes à puces, comme en HTML, attribut qui n'est pas valide en XHTML. On procèdera de la manière suivante :  
 
@@ -268,7 +268,7 @@ Une fois cette nouvelle classe définie, nous pouvons utiliser le visiteur perso
 Les listes présentes dans le XHTML généré auront alors l'attribut _'type'_ défini.  
 cf. résultat dans le fichier 06_convert_rst_to_modified_xhtml.html  
 
-_07 Ecriture d'un document RST :_  
+#_07 Ecriture d'un document RST :_  
 
 La rédaction d'un document de RST à partir d'un document DocBook existant, ou un objet ezcDocumentDocbook généré à partir d'une autre source, est triviale :
 
@@ -293,7 +293,7 @@ La classe ezcDocumentDocbookToRstConverter est utilisée pour la conversion en i
 
 En utilisant cette classe, on peut configurer le convertisseur à notre guise, ou hériter du convertisseur pour gérer les éléments docbook encore non gérés. Le convertisseur est configuré en utilisant sa propriété option. Les options sont définies dans la classe ezcDocumentDocbookToRstConverterOptions. Nous pouvons par exemple configurer l'en-tête utilisée, les types de listes à puces ou le retour à la ligne.  
 
-_08 Etendre l'écriture d'un document RST :_  
+#_08 Etendre l'écriture d'un document RST :_  
 
 Comme dit précédemment, tous les éléments docbook existants ne sont pas encore manipulés par le convertisseur. Mais son mécanisme  basé sur les handlers permet d'étendre ou de remplacer facilement le comportement existant.  
 Reprenons l'exemple précédent sur les adresses. Nous pouvons convertir l'élément docbook <adresse> selon la directive RST inverse _adresse_.

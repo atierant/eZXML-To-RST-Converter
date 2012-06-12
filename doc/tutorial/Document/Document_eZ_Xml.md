@@ -13,7 +13,7 @@ Les modules étant souvent personnalisés, et non documentés, il pourrait y avo
 Suivi du tutorial
 -----------------
 
-_01 Lecture d'un eZ XML :_  
+#_01 Lecture d'un eZ XML :_  
 
 La lecture d'un document formaté en eZ XML se fait de la même manière que pour tous les autres formats :  
 
@@ -43,7 +43,7 @@ cf. résultat dans le fichier _01_convert_ezxml_docbook_result.xml_
 
 Comme le montre l'exemple ci-dessus, pour convertir en _Docbook_ on peut simplement utiliser la méthode getAsDocbook().  
 
-_02 manipulation des liens présents dans un document eZ XML :_  
+#_02 manipulation des liens présents dans un document eZ XML :_  
 
 A l'intérieur d'un document _eZ XML_, les URI sont remplacées par des _ID_, qui font référence aux liens situés dans la base de données d'eZ Publish, pour s'assurer que les mises à jour des liens impactent toute la structure. Le remplacement de ces liens est géré par une classe héritant de ezcDocumentEzXmlLinkProvider. Par défaut les URL factices sont ajoutées aux documents.  
 Les URL sont soit directement référencées par leur _ID_, soit par un _node-ID_, soi par un _object ID_. Ces paramètres sont transmis au fournisseur de lien, qui devrait alors retourner une URL valide.  
@@ -117,7 +117,7 @@ cf. fichier 02_eZXML_link_handling_result.xml
 
 On notera que le fournisseur de liens est défini comme une option du convertisseur, comme vu dans le chapitre sur les RST. On peut, tout comme dans le convertisseur pour les RST, créer des handlers pour des éléments eZ XML qui ne sont pas encore supportés.  
 
-_03 Ecriture d'un document eZ XML :_  
+#_03 Ecriture d'un document eZ XML :_  
 
 Pour écrire un fichier _eZ XML_ on utilise un élément de transition _Docbook_ basé sur du XML, comme indiqué plus en détail dans la conversion _Docbook_ vers _RST_. Pour la conversion des liens, on utilise un objet qui hérite de _ezcDocumentEzXmlLinkConverter_. Cet objet retourne un tableau avec les attributs du lien dans le nouveau document _eZ XML_.  
 
