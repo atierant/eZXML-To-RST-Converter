@@ -1,3 +1,18 @@
+13 Juin 2012
+============
+
+        + Suite de la rédaction de la documentation sur le format _eZ XML_
+
+cf. /doc/documentation/eZXML  
+
+Fin de la documentation (au format RST) du XML block.  
+Localisation du fichier : /doc/documentation/eZXML/XMLBlock/XMLBlock.rst  
+
+        + Préparation de l'espace de travail pour le projet
+
+Essai de scripts de test, analyse des erreurs.
+cf. /src/project/
+
 12 Juin 2012
 ============
 
