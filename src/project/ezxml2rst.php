@@ -9,11 +9,18 @@ require_once './src/project/autoload.php';
 
 // The eZ XML string is actually loaded and parsed into an internal abstract syntax tree
 $document = new ezcDocumentEzXml();
+
+$document->options->errorReporting = E_PARSE | E_ERROR | E_WARNING;
+
+/*
 $document->loadString( '<?xml version="1.0"?>
 <section xmlns="http://ez.no/namespaces/ezpublish3">
     <header>Paragraph</header>
     <paragraph>Some content...</paragraph>
-</section>');
+</section>');*/
+
+$document->loadFile( dirname(__FILE__).'/examples/ezxml/myEZXMLFile.xml' );
+
 
 // The internal structure is then transformed back to a docbook document
 $docbook = $document->getAsDocbook();
