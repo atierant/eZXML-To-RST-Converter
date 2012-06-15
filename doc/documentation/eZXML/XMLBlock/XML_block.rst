@@ -13,7 +13,8 @@ Le datatype *XML block* d'*eZ Publish*
 Résumé
 ------
 
-Contrôle la validité de plusieurs lignes de texte formaté puis les enregistre.
+:Description:
+  Contrôle la validité de plusieurs lignes de texte formaté puis les enregistre.
 
 Sources originales
 ------------------

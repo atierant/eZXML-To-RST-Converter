@@ -13,7 +13,8 @@ Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
 Résumé
 ------
 
-Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
+:Description:
+  Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
 
 Source originale
 ----------------
