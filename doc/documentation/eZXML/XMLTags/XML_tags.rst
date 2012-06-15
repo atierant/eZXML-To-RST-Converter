@@ -1,6 +1,6 @@
-======================================
-Le datatype *XML block* d'*eZ Publish*
-======================================
+========================================================================
+Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
+========================================================================
 
 .. contents:: Table des matières
    :depth: 4
@@ -8,38 +8,19 @@ Le datatype *XML block* d'*eZ Publish*
 Résumé
 ------
 
-Contrôle la validité de plusieurs lignes de texte formaté puis les enregistre.
+Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
 
-Sources originales
-------------------
+Source originale
+----------------
 
-Le contenu de ce fichier est une adaptation de la `traduction par Pascal Boyer <http://luxpopuli.fr/eZ-Publish/Les-datatypes/Datatype-XML-Block-Bloc-XML>`_ de la `documentation eZ Publish sur le XML Block <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Datatypes/XML-block>`_ diffusée sous la licence `GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_.
-
-Propriétés
-----------
-
-+------------+-------------+---------------+---------------------------+
-|   Nom      | Nom interne | Interrogeable | Collecteur d'informations |
-+============+=============+===============+===========================+
-| XML block  | ezxmltext   |   Oui         |      Non                  |
-+------------+-------------+---------------+---------------------------+
+Le contenu de ce fichier est une traduction de la `documentation eZ Publish sur les balises XML supportées par le datatype XML Block <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/XML-tags>`_ diffusée sous la licence `GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_.
 
 Description
 -----------
 
-Bien qu'il n'existe pas de signes visuels immédiats, le datatype *XML block* d'*eZ Publish* se comporte différemment par rapport au datatype *text block* classique. En particulier, il est capable de valider et de stocker plusieurs lignes de texte formaté, au lieu de texte simple non formaté. Le texte présent dans un *XML block* doit être formaté en utilisant une collection de balises prédéfinies. Ces balises contrôlent le balisage HTML du contenu. *eZ Publish* est livré par défaut avec une collection de balises qui couvrent les besoins les plus courants. Il est également possible d'étendre le système de balisage en créant de nouvelles balises personnalisées répondant à des besoins spécifiques.
-
-Le signe "<" signifie le début d'une balise XML. Si on besoin d'insérer un signe *inférieur à* dans le texte (par exemple, "3 \< 5"), on doit utiliser l'`entité XML <http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references#Character_entities_in_XML>`_ correspondante \&lt;.
-
-::
-
-    3&lt;5
-
-Depuis la version 3.9 d'*eZ Publish*, il est possible d'entrer directement les entités numériques qui seront traduites en leur caractère/symbole correspondant lors du rendu du texte. Pour que cela fonctionne, il faut activer le paramètre de configuration `AllowNumericEntities <http://ez.no/doc/ez_publish/technical_manual/3_9/reference/configuration_files/ezxml_ini/inputsettings/allownumericentities>`_ de la section **[InputSettings]** de l'une des surcharges du fichier de configuration **ezxml.ini**.
-
 Par défaut, le datatype *XML block* supporte les balises XML suivantes :
 
--  **Headings** / `Titres <#titres>`_
+-  **Headings** / `En-têtes ou Titres <#titres>`_
 -  **Bold text** / `Texte gras <#texte_gras>`_
 -  **Italic text** / `Texte italique <#texte_italique>`_
 -  **Unformatted text** / `Texte non formaté <#texte_non_formate>`_
@@ -50,26 +31,6 @@ Par défaut, le datatype *XML block* supporte les balises XML suivantes :
 -  **Object embedding** / `Insertion d'objets <#insertion_objets>`_
 -  **Custom tags** / `Balises personnalisées <#balises_personnalisees>`_
 -  **Paragraphs** / `Paragraphes <#paragraphes>`_
-
-La capture d'écran ci-dessous montre l'interface d'édition des attributs de classe dans *eZ Publish* dans le cas de ce datatype :
-
-.. figure:: http://doc.ez.no/var/doc/storage/images/ez_publish/technical_manual/4_0/images/reference/datatypes/xml_block_class_attribute_edit_interface/6670-3-eng-GB/xml_block_class_attribute_edit_interface_doc.png
-   :align: center
-   :alt: Interface d'édition des attributs de classe pour le datatype *XML block*.
-
-Interface d'édition de l'attribut d'objet
------------------------------------------
-
-La capture d'écran ci-dessous montre l'interface d'édition des attributs d'objet dans le cas de ce datatype:
-
-.. figure:: http://doc.ez.no/var/doc/storage/images/ez_publish/technical_manual/4_0/images/reference/datatypes/xml_block_object_attribute_edit_interface/9522-3-eng-GB/xml_block_object_attribute_edit_interface_doc.png
-   :align: center
-   :alt: Interface d'édition des attributs d'objet pour le datatype *XML block*.
-
-Sortie brute
-------------
-
-La partie *.content* d'un objet `ezcontentobjectattribute <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Objects/ezcontentobjectattribute>`_ utilisant ce datatype renvoie un objet `ezxmltext <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Objects/ezxmltext>`_ .
 
 En tetes ou titres
 ------------------
