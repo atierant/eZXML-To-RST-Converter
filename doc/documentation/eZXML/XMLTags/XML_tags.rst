@@ -13,7 +13,7 @@ Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
 Source originale
 ----------------
 
-Le contenu de ce fichier est une traduction de la `documentation eZ Publish sur les balises XML supportées par le datatype XML Block <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/XML-tags>`_ diffusée sous la licence `GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_.
+Le contenu de ce fichier est une traduction (via adaptation de la `traduction par Pascal Boyer <http://luxpopuli.fr/eZ-Publish/Les-datatypes/Datatype-XML-Block-Bloc-XML>`_) de la `documentation eZ Publish sur les balises XML supportées par le datatype XML Block <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/XML-tags>`_ diffusée sous la licence `GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_.
 
 Description
 -----------
