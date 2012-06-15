@@ -1,12 +1,12 @@
 15 Juin 2012
 ============
 
-        + Suite de la rédaction de la documentation sur les balises supportées par le format _eZ XML_
+        + Suite & fin de la rédaction de la documentation sur les balises supportées par le format _eZ XML_
 
 cf. /doc/documentation/eZXML/XMLTags  
 
-Suite de la documentation (au format RST) des différentes balises (XML Tags) supportées par un XML block.  
-Gist temporaire de travail : https://gist.github.com/fc7aacb33a9949dcfffe  
+Suite & fin de la documentation (au format RST) des différentes balises (XML Tags) supportées par un XML block.  
+Localisation du fichier : /doc/documentation/eZXML/XMLTags/XML_tags.rst  
 
 14 Juin 2012
 ============
@@ -25,12 +25,12 @@ Gist temporaire de travail : https://gist.github.com/fc7aacb33a9949dcfffe
 13 Juin 2012
 ============
 
-        + Suite de la rédaction de la documentation sur le format _eZ XML_
+        + Suite & fin de la rédaction de la documentation sur le format _eZ XML_
 
 cf. /doc/documentation/eZXML  
 
 Fin de la documentation (au format RST) du XML block.  
-Localisation du fichier : /doc/documentation/eZXML/XMLBlock/XMLBlock.rst  
+Localisation du fichier : /doc/documentation/eZXML/XMLBlock/XML_block.rst  
 
         + Préparation de l'espace de travail pour le projet
 
