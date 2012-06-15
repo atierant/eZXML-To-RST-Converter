@@ -1,3 +1,27 @@
+15 Juin 2012
+============
+
+        + Suite de la rédaction de la documentation sur les balises supportées par le format _eZ XML_
+
+cf. /doc/documentation/eZXML/XMLTags  
+
+Suite de la documentation (au format RST) des différentes balises (XML Tags) supportées par un XML block.  
+Gist temporaire de travail : https://gist.github.com/fc7aacb33a9949dcfffe  
+
+14 Juin 2012
+============
+
+        + Rédaction de la documentation sur les balises supportées par le format _eZ XML_
+
+cf. /doc/documentation/eZXML/XMLTags  
+
+sources :  
+XML tags : http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/XML-tags  
+
+Je suis en cours de documentation (au format RST) des différentes balises (XML Tags) supportées par un XML block.  
+Gist temporaire de travail : https://gist.github.com/fc7aacb33a9949dcfffe  
+
+
 13 Juin 2012
 ============
 

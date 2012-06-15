@@ -8,8 +8,12 @@ Le datatype *XML block* d'*eZ Publish*
 Résumé
 ------
 
-Contrôle la validité de plusieurs lignes de texte formaté puis les
-enregistre.
+Contrôle la validité de plusieurs lignes de texte formaté puis les enregistre.
+
+Sources originales
+------------------
+
+Le contenu de ce fichier est une adaptation de la `traduction par Pascal Boyer <http://luxpopuli.fr/eZ-Publish/Les-datatypes/Datatype-XML-Block-Bloc-XML>`_ de la `documentation eZ Publish sur le XML Block <http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Datatypes/XML-block>`_ diffusée sous la licence `GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_.
 
 Propriétés
 ----------
