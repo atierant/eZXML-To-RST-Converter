@@ -8,6 +8,13 @@ cf. /doc/documentation/eZXML/XMLTags
 Suite & fin de la documentation (au format RST) des différentes balises (XML Tags) supportées par un XML block.  
 Localisation du fichier : /doc/documentation/eZXML/XMLTags/XML_tags.rst  
 
+        + Rédaction de la documentation sur le format RST
+
+cf. /doc/documentation/RST  
+
+Je suis en cours de documentation (au format RST) du langage RST.  
+Gist temporaire de travail : https://gist.github.com/ce256e1f88501af4b942  
+
 14 Juin 2012
 ============
 
