@@ -2,6 +2,11 @@
 Balises XML (XML Tags) supportées par le datatype *XML block* d'*eZ Publish*
 ========================================================================
 
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 15 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
 .. contents:: Table des matières
    :depth: 4
 
