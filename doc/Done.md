@@ -1,3 +1,23 @@
+21 Juin 2012
+============
+
+        + Rédaction de la documentation sur le format RST
+
+cf. /doc/documentation/RST  
+
+Je suis en cours de documentation (au format RST) du langage RST.  
+Gist temporaire de travail : https://gist.github.com/ce256e1f88501af4b942  
+
+20 Juin 2012
+============
+
+        + Rédaction de la documentation sur le format RST
+
+cf. /doc/documentation/RST  
+
+Je suis en cours de documentation (au format RST) du langage RST.  
+Gist temporaire de travail : https://gist.github.com/ce256e1f88501af4b942  
+
 19 Juin 2012
 ============
 
