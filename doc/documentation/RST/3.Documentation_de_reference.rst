@@ -1,0 +1,25 @@
+=============================================
+reStructuredText - Documentation de référence
+=============================================
+
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 22 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
+.. contents:: Table des matières
+   :depth: 3
+
+
+:Auteur:	Richard Jones
+:Adaptation:		Arnaud TIERANT
+:Copyright:		Ce document a été placé dans le domaine public.
+
+`Spécifications du langage <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_
+-------------------------------------------------------------------------------------------------
+
+`reStructuredText : Directives <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_
+-----------------------------------------------------------------------------------------------
+
+`reStructuredText : Rôles <http://docutils.sourceforge.net/docs/ref/rst/roles.html>`_
+-------------------------------------------------------------------------------------

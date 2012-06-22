@@ -1,0 +1,24 @@
+=======================================================
+reStructuredText - Documentation pour les développeurs
+=======================================================
+
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 22 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
+.. contents:: Table des matières
+   :depth: 3
+
+
+:Copyright:		Ce document a été placé dans le domaine public.
+
+
+-  `Problèmes avec StructuredText <http://docutils.sourceforge.net/docs/dev/rst/problems.html>`_
+
+`How-To`_
+---------
+
+-  `Création de directives reStructuredText <http://docutils.sourceforge.net/docs/howto/rst-directives.html>`_
+
+-  `Création de rôles reStructuredText <http://docutils.sourceforge.net/docs/howto/rst-roles.html>`_

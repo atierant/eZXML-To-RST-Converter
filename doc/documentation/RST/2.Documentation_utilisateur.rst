@@ -1,0 +1,314 @@
+============================================
+reStructuredText - Documentation utilisateur
+============================================
+
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 22 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
+.. contents:: Table des matières
+   :depth: 3
+
+`Documentation utilisateur officielle (en anglais)`_
+====================================================
+
+- `Documentation utilisateur <http://docutils.sourceforge.net/rst.html>`_
+- Une introduction à *reStructuredText* : `A reStructuredText Primer <http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_
+- *reStructuredText* en résumé : `Quick reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_ (référence pour l'utilisateur)
+- Rappel rapide de la syntaxe du *reStructuredText* : `reStructuredText Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html>`_ (1 page de rappel pour la syntaxe, 1 page de rappel pour les directives et les références/rôles)
+
+`Débuter en reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_
+==============================================================================================
+
+:Auteur:	Richard Jones
+:Adaptation:		Arnaud TIERANT
+:Copyright:		Ce document a été placé dans le domaine public.
+
+Structure
+---------
+
+Au départ, "Structured Text" (Texte Stucturé) est probablement un peu un abus de langage. C'est plus un "Texte décontracté" qui utilise certaines modèles constants. Ces modèles sont interprétés par un convertisseur HTML pour produire "un texte très structuré" qui peut être utilisé par un navigateur web.
+
+Le modèle le plus fondamentalement reconnu est un `paragraphe <http://docutils.sourceforge.net/docs/user/rst/quickref.html#paragraphs>`_. C'est un morceau de texte qui est séparé par des lignes vides (un seul saut suffit). Les paragraphes doivent avoir la même indentation et s'alignent à leur bord gauche. Les paragraphes qui commencent en retrait se traduiront en citations en retrait. Par exemple ::
+
+  Ceci est un paragraphe. C'est un peu
+  court.
+
+     Ce paragraphe va devenir un block de texte indenté,
+     utilisé généralement pour les citations.
+
+  Ceci en est un autre.
+
+Résultats:
+
+  Ceci est un paragraphe. C'est un peu
+  court.
+
+     Ce paragraphe va devenir un block de texte indenté,
+     utilisé généralement pour les citations.
+
+  Ceci en est un autre.
+
+
+Styles de texte
+---------------
+
+(`Source <http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup>`_)
+
+A l'intérieur des paragraphes et des autres corps de texte, on peut en outre déclarer le texte en *italique* avec "``*italique*``" ou en **gras** avec "``**gras**``". C'est ce qu'on appelle un "balisage en ligne". Pour faire apparaître littéralement un caractère, sans qu'l soit interprété, on utilise des "````doubles back-quotes````". Aucune mise en forme n'est faite à l'intérieur des doubles back-quotes. Les caractères astérisques "``*``", etc. sont laissés tels quels.
+
+Si on souhaite utiliser des caractères "spéciaux" directement dans le texte, reStructuredText est assez malin pour le "comprendre". Par exemple, cette astérisque * seule est très bien traitée, tout comme l'astérisque dans cette équation: 5 * 6 = 30. Si on souhaite réellement du texte \*délimité par des astérisques* qui **ne soit pas** mis en italique, alors on doit indiquer que l'astérisque n'est pas un caractère à interpréter, en plaçant une barre oblique inverse juste avant celle-ci, comme ceci "``\*``" (`Référence <http://docutils.sourceforge.net/docs/user/rst/quickref.html#escaping>`_), ou en l'enfermant dans des doubles backquotes, comme ceci : ::
+
+    ``*``
+
+Astuce:
+  Considérer les balises en ligne comme une forme de (parenthèses) et les utiliser de la même manière : immédiatement avant et après le texte marqué. Le balisage en ligne seul (entouré par des espaces) ou au milieu d'un mot ne sera pas reconnu. Voir la `spécification sur le balisage <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_ pour plus de détails.
+
+Listes
+------
+
+Trois types de listes sont disponibles : les **listes numérotées**, les **listes à puces** et les **listes de définitions**. Dans chacun des cas, il peut y avoir autant de paragraphes, des sous-listes, etc. que désiré, tant que le côté gauche du paragraphe s'aligne avec la première ligne de texte. Les listes doivent toujours commencer un nouveau paragraphe. De plus, elles doivent commencer après une ligne vide.
+
+Listes numérotées
+.................
+
+(`avec des numéros, des lettres ou une numération romaine <http://docutils.sourceforge.net/docs/user/rst/quickref.html#enumerated-lists>`_)
+
+  Démarrer une ligne avec un numéro ou une lettre suivie d'un point ".",
+  d'une parenthèse fermante ")" ou entouré par des parenthèses "()".
+  Tous les formats suivants sont reconnus : ::
+
+    1. Numéros
+
+    A. lettres majuscules
+       avec un titre sur plusieurs lignes
+
+       et même un paragraphe au milieu
+
+    a. lettres minuscules
+
+       3. une sous-liste commençant avec un chiffre différent
+       4. attention, s'assurer que les numéros sont dans le bon ordre !
+
+    I. Numération en lettres capitales romaines
+
+    i. Numération en lettres minuscules romaines
+
+    (1) un autre numéro
+
+    1) et un autre...
+
+  Résultat (note: les différents styles de listes numérotées ne sont pas toujours pris en charge par tous les navigateurs web, on peut donc ne pas obtenir le rendu désiré) :
+
+  1. Numéros
+
+  A. lettres majuscules
+     avec un titre sur plusieurs lignes
+
+     et même un paragraphe au milieu
+
+  a. lettres minuscules
+
+     3. une sous-liste commençant avec un chiffre différent
+     4. attention, s'assurer que les numéros sont dans le bon ordre !
+
+  I. Numération en lettres capitales romaines
+
+  i. Numération en lettres minuscules romaines
+
+  (1) un autre numéro
+
+  1) et un autre...
+
+Listes à puces (`référence <http://docutils.sourceforge.net/docs/user/rst/quickref.html#bullet-lists>`_)
+........................................................................................................
+
+  Elles fonctionnent comme les listes numérotées. Commencer la ligne avec une puce : soit "-", "+" ou "*"::
+
+    * un élément utilisant une puce "*"
+
+      - une sous-liste utilisant "-"
+
+        + une sous-sous-liste utilisant "+"
+
+      - un autre élément de la sous-liste...
+
+  Resultat :
+
+  * un élément utilisant une puce "*"
+
+    - une sous-liste utilisant "-"
+
+      + une sous-sous-liste utilisant "+"
+
+    - un autre élément de la sous-liste...
+
+Listes de définitions (`référence <http://docutils.sourceforge.net/docs/user/rst/quickref.html#definition-lists>`_)
+...................................................................................................................
+
+  Contrairement aux deux précédentes, les listes de définitions sont constituées d'un terme et de la définition de ce terme. Le format d'une liste de définition est::
+
+    Quoi
+      Les listes de définitions associent un terme avec une définition.
+
+    *Comment*
+      Le terme est une phrase d'une ligne. La définition est constituée d'un
+      ou plusieurs paragraphes ou éléments, indentés par rapport au terme.
+      Les lignes vides ne sont pas autorisées entre le terme et la définition.
+
+  Résultat :
+
+  Quoi
+    Les listes de définitions associent un terme avec une définition.
+
+  *Comment*
+    Le terme est une phrase d'une ligne. La définition est constituée d'un
+    ou plusieurs paragraphes ou éléments, indentés par rapport au terme.
+    Les lignes vides ne sont pas autorisées entre le terme et la définition.
+
+Texte préformaté (`référence <http://docutils.sourceforge.net/docs/user/rst/quickref.html#literal-blocks>`_)
+------------------------------------------------------------------------------------------------------------
+
+Pour simplement inclure un morceau de texte préformaté qui ne doit pas être ni modifié ni interprété, terminer le paragraphe précédent par "::". Le bloc préformaté se termine lorsque le texte revient au même niveau d'indentation que le paragraphe précédent le bloc préformaté. Par exemple::
+
+  Un exemple::
+
+      Les espaces, les nouvelles lignes, les lignes vides, et toute sorte de balisage
+         (Comme *ceci* ou \cela) sont préservés par des *literal blocks*.
+     Regardez ici, je suis descendu d'un niveau d'indentation
+     (Mais pas assez loin)
+
+  Fin de l'exemple
+
+Résultat :
+
+  Un exemple::
+
+      Les espaces, les nouvelles lignes, les lignes vides, et toute sorte de balisage
+         (Comme *ceci* ou \cela) sont préservés par des *literal blocks*.
+     Regardez ici, je suis descendu d'un niveau d'indentation
+     (Mais pas assez loin)
+
+  Fin de l'exemple
+
+Notons que si un paragraphe est composé uniquement de "::", il disparait dans le rendu ::
+
+  ::
+
+      Ceci est un texte préformaté et le
+      dernier paragraphe "::" a été enlevé.
+
+Resultat :
+
+::
+
+    Ceci est un texte préformaté et le
+    dernier paragraphe "::" a été enlevé.
+
+Sections (`référence <http://docutils.sourceforge.net/docs/user/rst/quickref.html#section-structure>`_)
+-------------------------------------------------------------------------------------------------------
+
+Pour découper un long texte en plusieurs sections, on utilise des **en-têtes de section**. Il s'agit d'une seule ligne de texte (composée d'un ou de plusieurs mots) avec soit un trait de soulignement seul, soit ce trait de soulignement accompagné d'un trait de surlignement au dessus. Les ornements de l'en-tête se font en tirets "-----", en signes égal "======", en tildes "~~~~~~" ou en un des caractères non-alphanumériques ``= - ` : ' " ~ ^ _ * + # < >`` avec lequel on se sent à l'aise.
+Un soulignement seul est distinct d'un soulignement + surlignement (avec les mêmes caractères).
+Le soulignement/surlignement doit être au moins aussi long que le texte du titre. Il est nécessaire de garder une cohérence : toutes les sections marquées par le même ornement doivent être au même niveau::
+
+  Chapitre 1 Titre
+  ================
+
+  Section 1.1 Titre
+  -----------------
+
+  Sous-section 1.1.1 Titre
+  ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Section 1.2 Titre
+  -----------------
+
+  Chapitre 2 Titre
+  ===============
+
+Il en résulte la structure suivante, illustrée par un Pseudo-XML simplifié : ::
+
+    <section>
+        <title>
+            Chapitre 1 Titre
+        <section>
+            <title>
+                Section 1.1 Titre
+            <section>
+                <title>
+                    Sous-section 1.1.1 Titre
+        <section>
+            <title>
+                Section 1.2 Titre
+    <section>
+        <title>
+            Chapitre 2 Titre
+
+(Pseudo-XML utilise l'indentation pour illustrer l'imbrication, il n'a pas de balises fermantes. Il n'est pas possible de montrer la transformation réelle, comme dans les exemples précédents, parce que les sections ne peuvent pas exister à l'intérieur des *block-quotes*. Pour visualiser un exemple concret, comparer la structure de la source rst de ce document et la génération de celui-ci.)
+
+Notons que les en-têtes de section sont disponibles en tant que lien, en utilisant simplement leur nom. Par exemple, pour créer un lien vers l'en-tête Listes_, écrire "``Listes_``". Si le titre contient un espace, comme par exemple `Styles de texte`_ , on doit "backquoter" la rubrique "```Styles de texte`_``". Malheureusement les accents ne sont pas encore gérés lors de la transformation des liens, l'exemple suivant ne fonctionne donc pour le moment pas : `Listes numérotées`_ , défini "```Listes numérotées`_``".
+
+Titre et sous-titre du document
+...............................
+
+Le titre du document est distinct des titres de section et peut être formaté différemment (par exemple l'interpréteur HTML par défaut le montre comme une en-tête centrée).
+
+Pour indiquer le titre d'un document dans *reStructuredText*, utiliser un style de décoration unique, au début du document. Pour indiquer le sous-titre du document, utilisez un autre style de décoration unique, immédiatement après le titre du document. Par exemple::
+
+    ==================
+     Titre du document
+    ==================
+    -----------
+     Sous-titre
+    -----------
+
+    Titre de section
+    ================
+
+    ...
+
+Notons que les «Titre du document» et «Titre de section» ci-dessus utilisent tous deux des signes égal, mais restent des styles disticts et non reliés. Le texte des titres surlignés et soulignés (nous ne parlons pas de soulignement simple) peut être inséré pour l'esthétique.
+
+Images
+------
+
+Pour inclure une image dans un document, on utilise la `directive <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ ``image``. Par exemple : ::
+
+ ..  image :: images/biohazard.png
+
+se traduit par :
+
+.. image:: http://docutils.sourceforge.net/docs/user/rst/images/biohazard.png
+
+La partie ``images/biohazard.png`` indique le nom du fichier de l'image que l'on souhaite voir apparaître dans le document. Il n'y a pas de restrictions (de format, de taille etc.) sur l'image. Si l'image doit apparaître en HTML et que l'on souhaite fournir des informations supplémentaires, on peut définir des options de directive de la manière suivante : ::
+
+  .. image:: images/biohazard.png
+     :height: 100
+     :width: 200
+     :scale: 50
+     :alt: Texte alternatif
+
+D'avantage d'information est disponible sur la `documentation de la directive 'image' <http://docutils.sourceforge.net/docs/ref/rst/directives.html#images>`_.
+
+
+reStructuredText en résumé
+==========================
+
+`Quick reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_ (référence pour l'utilisateur)
+
+
+Mémento de la syntaxe du reStructuredText
+=========================================
+
+http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html
+
+
+Essayer en ligne
+================
+
+Il est possible d'essayer *reStructuredText* sans télécharger *Docutils*, en utilisant le `moteur de rendu reStructuredText en ligne
+ <http://www.hosting4u.cz/jbar/rest/rest.html>`_
+
+

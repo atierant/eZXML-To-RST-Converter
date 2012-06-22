@@ -1,0 +1,195 @@
+=============================================
+reStructuredText - reStructuredText en résumé
+=============================================
+
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 22 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
+.. contents:: Table des matières
+   :depth: 3
+
+Balisage en ligne
+=================
+
+(`détails <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_)
+
+Le balisage en ligne permet à des mots et des phrases dans un texte d'avoir des styles de caractères (comme en italique et en gras) et des fonctionnalités (comme des liens hypertexte).
+
++-------------------------+-------------------------+-------------------------+
+|       Texte brut        |        Résultat         |        Remarques        |
++=========================+=========================+=========================+
+| \*Emphase\*             | *Emphase*               | Normalement rendu en    |
+|                         |                         | italique.               |
++-------------------------+-------------------------+-------------------------+
+| \*\*strong emphasis\*\* | **strong emphasis**     | Normalement rendu en    |
+|                         |                         | gras.                   |
++-------------------------+-------------------------+-------------------------+
+| \`Texte interprété\`    | (Voir le commentaire à  | Le rendu et la          |
+|                         | droite)                 | *signification* du      |
+|                         |                         | texte interprété, est   |
+|                         |                         | dépendant du domaine et |
+|                         |                         | de l'application. Il    |
+|                         |                         | peut être utilisé pour, |
+|                         |                         | par exemple, des        |
+|                         |                         | entrées d'index ou une  |
+|                         |                         | description explicite   |
+|                         |                         | de balise (i.e. les     |
+|                         |                         | identificateurs de      |
+|                         |                         | programme).             |
++-------------------------+-------------------------+-------------------------+
+| \`\`Rendu literal\`\`   | ``Rendu literal``       | Normalement rendu sous  |
+|                         |                         | forme de texte à        |
+|                         |                         | espacement fixe. Les    |
+|                         |                         | espaces sont préservés, |
+|                         |                         | mais les sauts de ligne |
+|                         |                         | ne le sont pas.         |
++-------------------------+-------------------------+-------------------------+
+| Lien\_                  | `Lien                   | Un simple lien          |
+|                         | <#hyperlink-targets>`_  | hypertexte sur un seul  |
+|                         |                         | mot. Voir `cibles de    |
+|                         |                         | lien hypertexte         |
+|                         |                         | <#hyperlink-targets>`_. |
++-------------------------+-------------------------+-------------------------+
+| \`Lien sous forme de    | `Lien  sous forme de    | Un lien hypertexte avec |
+| phrase\`\_              | phrase                  | des espaces ou de la    |
+|                         | <#hyperlink-targets>`_  | ponctuation doit être   |
+|                         |                         | entouré avec des        |
+|                         |                         | *backquotes* "\`". Voir |
+|                         |                         | `cibles de lien         |
+|                         |                         | hypertexte              |
+|                         |                         | <#hyperlink-targets>`_. |
++-------------------------+-------------------------+-------------------------+
+| Anonyme\_\_             | `Anonyme                | Avec deux *underscore*  |
+|                         | <#hyperlink-targets>`_  | au lieu d'un, les deux  |
+|                         |                         | types de liens          |
+|                         |                         | précédents peuvent être |
+|                         |                         | dits *anonymes* (le     |
+|                         |                         | texte du lien n'est pas |
+|                         |                         | rendu lors de la        |
+|                         |                         | création). Voir `cibles |
+|                         |                         | de lien hypertexte      |
+|                         |                         | <#hyperlink-targets>`_. |
++-------------------------+-------------------------+-------------------------+
+| \_\`Cible interne au    | Cible interne au        | Une référence croisée   |
+| document\`              | document                | dans le texte. Voir     |
+|                         |                         | `cibles de lien         |
+|                         |                         | hypertexte              |
+|                         |                         | <#hyperlink-targets>`_. |
++-------------------------+-------------------------+-------------------------+
+| \|Référence de          | (Voir le commentaire à  | Le résultat est         |
+| substitution\|          | droite)                 | substitué, comme décrit |
+|                         |                         | dans `la définition de  |
+|                         |                         | la substitution         |
+|                         |                         | <#substitution-referen  |
+|                         |                         | ces-and-definitions>`_. |
+|                         |                         | Il peut être du texte,  |
+|                         |                         | une image, un lien      |
+|                         |                         | hypertexte, ou une      |
+|                         |                         | combinaison de ceux-ci  |
+|                         |                         | et d'autres éléments.   |
++-------------------------+-------------------------+-------------------------+
+| Renvoi à une note de    | Renvoi à une note de    | Voir `note de pied de   |
+| pied de page [1]\_      | pied de page [1]_       | page <#footnotes>`_.    |
+|                         |                         |                         |
++-------------------------+-------------------------+-------------------------+
+| Citation d'une          | Citation d'une          | Voir `Citation          |
+| référence [CIT2002]\_   | référence `[CIT2002]    | <#citations>`_.         |
+|                         | <#citations>`_          |                         |
++-------------------------+-------------------------+-------------------------+
+|                         |                         | Un lien hypertexte      |
+| http://docutils.sf.net/ | `http://docutils.sf.net | autonome.               |
+|                         | /                       |                         |
+|                         | <http://docutils.sf.net |                         |
+|                         | />`_                    |                         |
++-------------------------+-------------------------+-------------------------+
+
+L'asterisque, le backquote, la barre verticale et l'underscores sont des caractères de délimitation en ligne. L'asterisque, le backquote et la barre verticale agissent comme des marquages ; les caractères qui se correspondent doivent entourer le mot ou la phrase à baliser. Les espaces ou les guillemets doivent se trouver en dehors de ce balisage. Il ne peut pas non plus y avoir un espace simple à l'intérieur du balisage. Si on souhaite afficher des caractères délimiteurs littéralement, on doit les échapper (avec une barre oblique inverse) ou les entourer de double backquotes.
+
+De manière plus détaillée, la spécification reStructuredText dit que dans le balisage en ligne, les règles suivantes s'appliquent aux balises de début et fin de la chaine à baliser :
+
+#. La balise de début de chaîne doit commencer un bloc de texte ou être immédiatement précédée d'un espace ou de l'un des caractères suivants : ``' " ( [ {`` ou ``<``.
+#. La balise de début de chaîne doit être immédiatement suivie d'un caractère qui ne soit pas un espace.
+#. La balise de fin de chaîne doit être immédiatement précédée d'un caractère qui ne soit pas un espace..
+#. La balise de fin de chaîne doit terminer un bloc de texte (la fin du document ou suivie par une ligne blanche) ou être immédiatement suivie d'un espace ou de l'un des caractères suivants : ``' " . , : ; ! ? - ) ] } / \\`` ou ``>``.
+#. Si une balise de début de chaîne est immédiatement précédée d'un des caractères suivants ``' " ( [ {`` ou ``<`` , elle ne doit pas être immédiatement suivie par le caractère correspondant de ``' " ) ] }`` ou ``>``.
+#. Une balise de fin de chaîne doit être séparée par au moins un caractère de la balise de début de chaîne.
+#. Un `échappement <#escaping>`_ antislash précédant une balise de début de chaîne ou une balise de fin de chaîne permet de désactiver la reconnaissance de la balise.
+
+Rappelons aussi que le balisage en ligne ne peut pas être imbriqué. Excepté le balisage pour le rendu littéral, qui, lui, peut contenir n'importe quel autre caractère de balisage en ligne, mais cela ne compte pas vraiment, car le contenu du rendu littéral n'est par définition pas traité).
+
+Caractère d'échappement : L'antislash
+=====================================
+
+(`details <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#escaping-mechanism>`_)
+
+reStructuredText utilise des antislashs ("\\") pour remplacer la signification spéciale donnée à des caractères de balisage et d'obtenir des caractères affichés littéralement. Pour obtenir un antislash littéral, utilisez une barre oblique inverse d'échappement ("\\\\"). Par exemple :
+
++-------------------------------------+-------------------------------+
+|         reStructuredText            |           Résultat            |
++=====================================+===============================+
+| \*échapper\* \`\`avec\`\` "\\"      | *échapper* ``avec`` ""        |
++-------------------------------------+-------------------------------+
+| \\*échapper\* \\`\`avec\`\` "\\\\\" | \*échapper\* \``avec`` "\\"   |
++-------------------------------------+-------------------------------+
+
+Dans les chaînes en Python, il est nécessaire d'échapper tous les caractères antislash afin qu'ils atteignent effectivement reStructuredText.
+
+Structure des sections
+======================
+
++--------------------------------------+--------------------------------------+
+|           reStructuredText           |               Résultat               |
++======================================+======================================+
+|                                      |                                      |
+| \=====                               | \=====                               |
+| Titre                                | Titre                                |
+| \=====                               | \=====                               |
+| Sous-titre                           | Sous-titre                           |
+| ----------                           | ----------                           |
+|                                      |                                      |
+| Les titres sont soulignés (ou        | Les titres sont soulignés (ou        |
+| surlignés et soulignés) avec un      | surlignés et soulignés) avec un      |
+| caractère d'impression non           | caractère d'impression non           |
+| alphanumérique 7-bit ASCII. Les      | alphanumérique 7-bit ASCII. Les      |
+| choix recommandés sont :             | choix recommandés sont :             |
+| ``= - \` : ' " ~ ^ \_ \* + # < >``.  | ``= - \` : ' " ~ ^ \_ \* + # < >``.  |
+|                                      |                                      |
+| Le trait de soulignement /           | Le trait de soulignement /           |
+| surlignement doit être au            | surlignement doit être au            |
+| au moins aussi long que le texte du  | au moins aussi long que le texte du  |
+| titre.                               | titre.                               |
+|                                      |                                      |
+| Une sous-section du titre, située    | Une sous-section du titre, située    |
+| juste sous le titre, est considérée  | juste sous le titre, est considérée  |
+| comme le sous-titre.                 | comme le sous-titre.                 |
++--------------------------------------+--------------------------------------+
+
+
+
+
+Notes de pied de page
+=====================
+
+.. [1] A numerical footnote
+
+Citations
+=========
+
+(`details <../../ref/rst/restructuredtext.html#citations>`_)
+
+Directives
+==========
+
+Les directives représentent un mécanisme d'extension, un moyen d'ajouter de nouvelles constructions, sans ajouter de nouvelle syntaxe. Pour une description de toutes les directives standard, voir les directives reStructuredText dans le fichier 7.Directives.rst.
+
++--------------------------------+----------------------------------------------------------------------------+
+|           reStructuredText     |               Résultat                                                     |
++================================+============================================================================+
+|                                |                                                                            |
+| Par exemple :                  | Par exemple :                                                              |
+| ..  image:: images/ball1.gif   | .. image:: http://docutils.sourceforge.net/docs/user/rst/images/ball1.gif  |
+|                                |                                                                            |
++--------------------------------+----------------------------------------------------------------------------+
+

@@ -1,0 +1,95 @@
+===================================================
+ reStructuredText - Introduction au reStructuredText
+===================================================
+
+:Author: 		Arnaud TIERANT
+:Date:			Vendredi 22 Juin 2012
+:Revision: 		
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
+.. contents:: Table of Contents
+   :depth: 3
+
+Documentation utilisée
+======================
+
+1. http://docutils.sourceforge.net/sandbox/wilk/french/quickstart-fr.html
+2. http://docutils.sourceforge.net/docs/ref/rst/
+3. http://adrhi93.free.fr/utilitaires/restructureTexte.txt
+
+Documentation produite
+======================
+
+1. 1.Introduction_au_reStructuredText.rst (ce document)
+2. 2.Documentation_utilisateur.rst
+3. 3.Documentation_de_reference.rst
+4. 4.Documentation_pour_developpeurs.rst
+
+Introduction
+============
+
+:Description:
+  `Définition sur Wikipedia <http://fr.wikipedia.org/wiki/ReStructuredText>`_ : *reStructuredText* est un langage de balisage léger [...] L'analyseur syntaxique de référence est implémenté comme élément Docutils du [Framework] du langage de programmation Python, mais d'autres implémentations existent par ailleurs (par exemple Pandoc en Haskell ou JRst en Java).
+
+:Lien:
+  `reStructuredText <http://docutils.sourceforge.net/rst.html>`__ 
+
+:Note:
+  "*reStructuredText*" s'écrit en un seul mot, pas deux !
+
+`Documentation utilisateur officielle (en anglais)`_
+====================================================
+
+- `Documentation utilisateur <http://docutils.sourceforge.net/rst.html>`_
+- Une introduction à *reStructuredText* : `A reStructuredText Primer <http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_
+- *reStructuredText* en résumé : `Quick reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_ (référence pour l'utilisateur)
+- Rappel rapide de la syntaxe du *reStructuredText* : `reStructuredText Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html>`_ (1 page de rappel pour la syntaxe, 1 page de rappel pour les directives et les références/rôles)
+
+`Qu'est-ce que reStructuredText ? <http://docutils.sourceforge.net/docs/ref/rst/introduction.html>`_
+====================================================================================================
+
+*reStructuredText* est un langage de balisage et un parseur de fichier texte brut, facile à lire et quasiment WYSIWYG. Il est utilisé pour la documentation en ligne de programmes (tel que docstrings de Python), pour créer rapidement des pages web simples et pour des documents autonomes. *reStructuredText* est un projet de révision et de réinterprétation des langages `StructuredText <http://dev.zope.org/Members/jim/StructuredTextWiki/FrontPage/>`_ et `Setext <http://docutils.sourceforge.net/mirror/setext.html>`_, langages de balisage légers. *reStructuredText* est conçu pour être extensible, pour s'adapter à des domaines d'application spécifiques. Son parseur est un composant de `Docutils <http://docutils.sourceforge.net/index.html>`_ (traduit de http://docutils.sourceforge.net/docs/ref/rst/introduction.html)
+
+`Histoire de reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/introduction.html#history>`_
+========================================================================================================
+
+`Setext <http://en.wikipedia.org/wiki/Setext>`_ (développé par Ian Feldman ou Tony Sanders) et StructuredText (développé par Zope Corporation) sont des formes ancestrales d'un langage de balisage léger. Il y avait un certain nombre de `problèmes avec StructuredText <http://docutils.sourceforge.net/docs/dev/rst/problems.html>`_ . reST était une réimplémentation et une extension des idées envisagées de StructuredText, ceci afin de de répondre à ces problèmes. Le nom *reStructuredText* a été choisi pour indiquer que reST est un version révisée, retravaillée, et réinterprétée de StructuredText.
+reST a commencé à être largement adopté par la communauté du langage Python en 2002. Depuis 2008, reST est un élément essentiel de `Sphinx <http://sphinx.pocoo.org/>`_, un système génération de documentation pour Python.
+
+`Objectifs <http://docutils.sourceforge.net/docs/ref/rst/introduction.html#goals>`_
+===================================================================================
+
+L'objectif principal de *reStructuredText* est de définir et d'implémenter un langage de balisage léger pour une utilisation dans docstrings de Python (système de documentation dans le code) et dans d'autres domaines de la documentation. Ce langage doit être lisible et simple, tout en étant suffisamment puissant pour les utilisations non classiques.
+
+L'objectif principal visé par le langage de balisage *reStructuredText* est divisé en deux parties :
+- la mise en place d'un ensemble de conventions standardisées, permettant l'expression d'une structure au sein de documents *plein texte*,
+- la conversion de tels documents dans des formats de données structurés utiles.
+
+L'objectif secondaire de *reStructuredText* est d'être adopté par la communauté Python comme un standard pour la documentation Python en ligne.
+
+Afin de clarifier l'objectif principal, voici les objectifs de conception spécifiques, dans l'ordre, en commençant par le plus important :
+
+:Lisible:
+  Le texte balisé doit être facile à lire sans aucune connaissance préalable du langage de balisage. Il devrait être aussi facile à lire sous forme brute que sous forme transformée.
+:Discret:
+  Le balisage qui est utilisé doit être aussi simple et discret que possible. La simplicité de compréhension des balises devrait être à peu près proportionnelle à leur fréquence d'utilisation, les balises les plus courantes avec un balisage naturel et évident, simple et discret. Les balises moins courantes pour lesquelles il n'y a pas de balisage naturel ou évident, devraient facilement se discerner.
+:Sans ambiguité:
+  Les règles pour le balisage ne doivent pas être sujettes à interprétation. Pour une entrée donnée, il doit y avoir une et une seule sortie possible (y compris la sortie d'erreur).
+:Sans surprise:
+  Les constructions de balises ne doivent pas causer de sortie inattendue lors du traitement pour la transformation. Il doit y avoir une solution de repli pour empêcher la transformation d'une balise non prévue pour la transformation, par exemple, lors de la documentation de la balise elle-même.
+:Intuitif:
+  Le balisage doit être aussi évident et facile à retenir que possible, que ce soit pour l'auteur comme pour le lecteur. On doit pouvoir facilement construire ces balises à partir de sources classiques telles que les e-mails en texte brut, les newsgroups, ou encore des textes de documentation (les fichiers README.txt par exemple).
+:Facile:
+  Il doit être facile de baliser du texte en utilisant n'importe quel éditeur de texte ordinaire.
+:Évolutif:
+  Le balisage devrait être applicable indépendamment de la longueur du texte.
+:Puissant:
+  Le balisage doit fournir suffisamment de souplesse pour produire un document raisonnablement riche et structuré.
+:Langue neutre:
+  Le balisage doit s'appliquer à plusieurs langues naturelles (ainsi que artificielles), pas seulement en anglais.
+:Extensible:
+  Le balisage doit fournir une syntaxe facile et une interface simple pour l'ajout de balises plus complexes et/ou personnalisées.
+:Sortie neutre:
+  Le balisage doit être approprié pour de multiples formats de sortie envisageables, il ne doit pas être partisan d'un format particulier.
+
+Les objectifs de conception ci-dessus ont été utilisés comme critères pour accepter ou rejeter la syntaxe, ou choisir entre des alternatives. Le but de *reStructuredText* n'est pas de (re)définir la sémantique de *docstring*, tels que le contenu ou la longueur. Ces questions sont orthogonales au langage balisage et bien au-delà de la portée de ces spécifications. En outre, le but de *reStructuredText* n'est pas de maintenir la compatibilité avec *StructuredText* ou *Setext*. *reStructuredText* vole sans vergogne leurs idées sans tenir compte des moins intéressantes.
