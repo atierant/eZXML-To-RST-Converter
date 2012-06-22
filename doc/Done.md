@@ -1,12 +1,10 @@
-21 Juin 2012
+22 Juin 2012
 ============
 
         + Apprentissage des directives et rôles du format RST
 
 Identification des Directives et rôles particuliers pouvant poser problème lors de la conversion du RST en Docbook.  
-
-
-
+Analyse du document http://docutils.sourceforge.net/docs/ref/rst/directives.html  
 
 21 Juin 2012
 ============
