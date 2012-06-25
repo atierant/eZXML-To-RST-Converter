@@ -13,7 +13,7 @@
  * @package 
  * @version 
  */
-class ezcDocumentEzXmlToRstConverter
+class EzcDocumentEzXmlToRstConverter
 {
     public function convertRstToEzXml( ezcDocumentRst $rstInput )
     {
