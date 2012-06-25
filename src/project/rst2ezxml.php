@@ -14,8 +14,13 @@ $rstdoc->options->errorReporting = E_PARSE | E_ERROR | E_WARNING;
 // Load the RST input into the set object
 $rstdoc->loadFile( dirname(__FILE__).'/examples/rst/rst_base_handler.rst' );
 
+
+
 // Create a new empty ezc EZ XML Document to fill with the return of the conversion
 $myEZXmlResult = new ezcDocumentEzXml();
+
+// Set our object to catch all errors during conversion
+$myEZXmlResult->options->errorReporting = E_PARSE | E_ERROR | E_WARNING;
 
 // Execute conversion
 $myEZXmlResult = ezcDocumentEzXmlToRstConverter::convertRstToEzXml($rstdoc);
