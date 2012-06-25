@@ -8,28 +8,27 @@ Principe de base
 
 Un fichier d'un langage de balisage particulier est transformé en un autre langage de balisage.  
 Pour ce faire, nous avons dans les eZ Components un composant particulier, "Document", qui permet de réaliser diverses opérations sur les langages balisés, donc cette conversion.  
-- [ToDo]
 
 Problématique
 =============
 
-Dans les ezcDocument, il n'y a pas de convertisseur de eZXML en ReStructuredText, pas non plus de convertisseur de ReStructuredText en eZXML.  
+Dans les ezcDocument, il n'y a pas de convertisseur de eZXML en reStructuredText, pas non plus de convertisseur de reStructuredText en eZXML.  
 Nous voulons créer une classe de conversion contenant deux méthodes :  
-        + une méthode qui transforme un eZXML en Rst,    
+        + une méthode qui transforme un eZXML en rST,    
         + une autre qui transforme un Rst en eZXML.    
 
 Nous voulons également deux scripts indépendants pour la conversion des formats :  
         + un script ezxml2rst.php,    
         + un script rst2ezxml.php.  
 
-On part avec l'avantage d'avoir les deux langages qui sont disponibles (ezcDocumentRst pour le format ReStructuredText et ezcDocumentEzXml pour le format eZXML)  
+On part avec l'avantage d'avoir les deux langages qui sont disponibles (ezcDocumentRst pour le format reStructuredText et ezcDocumentEzXml pour le format eZXML)  
 Nous avons à notre disposition d'autres convertisseurs similaires, héritant de ezcDocumentConverter.  
 
 Un exemple de convertisseur existant :  
 exemple : http://ezcomponents.org/docs/api/trunk/Document/ezcDocumentDocbookToRstConverter.html  
 ezcDocumentDocbookToRstConverter est une classe du composant Document des eZ Components.  
-La responsabilité de la classe ezcDocumentDocbookToRstConverter est de convertir un document au format Docbook en un document au format ReStructuredText. En prenant cette classe comme exemple, nous allons créer un ezcDocumentEzXmlToRstConverter.  
-La classe ezcDocumentEzXmlToRstConverter demandée doit convertir un document au format eZXML en un document au format ReStructuredText et réciproquement.  
+La responsabilité de la classe ezcDocumentDocbookToRstConverter est de convertir un document au format Docbook en un document au format reStructuredText. En prenant cette classe comme exemple, nous allons créer un ezcDocumentEzXmlToRstConverter.  
+La classe ezcDocumentEzXmlToRstConverter demandée doit convertir un document au format eZXML en un document au format reStructuredText et réciproquement.  
 
 ________________________________________________
 
@@ -92,12 +91,12 @@ http://ez.no/doc/ez_publish/technical_manual/4_0/reference/xml_tags
 eZ XML décrit le format de balisage utilisé en interne par eZ Publish pour stocker les données balisées dans des objets spécifiques. Le format est (peu) documenté dans la documentation de eZ Publish.  
 Les modules étant souvent personnalisés, et non documentés, donc il pourrait y avoir plusieurs éléments ne sont pas considérés par défaut.
 
-Documentation sur le langage de balisage ReStructuredText
+Documentation sur le langage de balisage reStructuredText
 ---------------------------------------------------------
 http://docutils.sourceforge.net/rst.html  
-http://fr.wikipedia.org/wiki/ReStructuredText  
+http://fr.wikipedia.org/wiki/reStructuredText  
 
-ReStructuredText (RST) est un langage de balisage simple et cohérent, destiné à être facile à lire et à écrire par les humains. Des exemples peuvent être trouvés dans la documentation officielle.
+reStructuredText (RST) est un langage de balisage simple et cohérent, destiné à être facile à lire et à écrire par les humains. Des exemples peuvent être trouvés dans la documentation officielle.
 
 Documentation de Document :
 ---------------------------
