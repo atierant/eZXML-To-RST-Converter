@@ -3,7 +3,7 @@
 require_once './src/project/autoload.php';
 
 // Load custom class
-require dirname(__FILE__).'/ezcDocumentEzXmlToRstConverter.php';
+require dirname(__FILE__).'/EzcDocumentEzXmlToRstConverter.php';
 
 // Create a new empty ezc RST Document to fill with a RST File
 $rstdoc = new ezcDocumentRst();
