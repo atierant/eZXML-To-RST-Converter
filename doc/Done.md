@@ -1,3 +1,10 @@
+25 Juin 2012
+============
+
+        + Mise à jour du script de conversion, création de la classe de conversion
+
+Je m'appuie sur la classe ezcDocumentRst, surtout sa partie getAsXhtml()  
+
 22 Juin 2012
 ============
 
