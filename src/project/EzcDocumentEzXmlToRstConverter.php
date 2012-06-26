@@ -13,10 +13,54 @@
  * @package 
  * @version 
  */
-class EzcDocumentEzXmlToRstConverter
+class EzcDocumentEzXmlToRstConverter extends ezcDocumentElementVisitorConverter
 {
-    public function convertRstToEzXml( ezcDocumentRst $rstInput )
+
+    /**
+     * AS A REMEMBER :
+     * RST can be converted forth and back between Docbook and RST. Additionally
+     * you may register cusom visitors for the abstract sysntax tree (AST) the RST
+     * parser creates, to directly convert the AST into other languages then
+     * Docbook. Two different visitors for XHTML are already implemented in the
+     * component:
+     * - ezcDocumentRstXhtmlVisitor
+     * - ezcDocumentRstXhtmlBodyVisitor
+     * We can use them to create a ezcDocumentRstEzXmlVisitor
+     */
+     
+     
+     /**
+     * Return document compiled to the eZ XML format
+     *
+     * The internal document structure is compiled to the eZ XML format and the
+     * resulting eZ XML document is returned.
+     *
+     * @return ezcDocumentEzXml
+     */
+    public function convertRstToEzXml()
     {
+        // Parse the RST Document
+        $tokenizer = new ezcDocumentRstTokenizer();
+        $parser    = new ezcDocumentRstParser();
+        $parser->options->errorReporting = $this->options->errorReporting;
+        $this->ast = $parser->parse( $tokenizer->tokenizeString( $this->contents ) );
+        
+        // Prepare the visitor
+        $visitorClass = $this->options->xhtmlVisitor;
+        $visitor = new $visitorClass( $this, $this->path );
+        $visitor->options = $this->options->xhtmlVisitorOptions;
+
+        $document->setDomDocument(
+            $visitor->visit( $this->ast, $this->path )
+                );
+
+        return $document;
+        
+        
+        
+        
+    
+        $rstInput = new ezcDocumentRst;
         // Create a new transitional ezcDocbook object to recieve the first convert
         $docbook = new ezcDocumentDocbook();
         
@@ -66,6 +110,27 @@ class EzcDocumentEzXmlToRstConverter
         //fclose($myEZXmlResult);
         //$result = $ezXml->save();
     }
+    
+                    #    public function getAsXhtml()
+                    #    {
+                    #        $tokenizer = new ezcDocumentRstTokenizer();
+                    #        $parser    = new ezcDocumentRstParser();
+                    #        $parser->options->errorReporting = $this->options->errorReporting;
+
+                    #        $this->ast = $parser->parse( $tokenizer->tokenizeString( $this->contents ) );
+
+                    #        $document = new ezcDocumentXhtml();
+
+                    #        $visitorClass = $this->options->xhtmlVisitor;
+                    #        $visitor = new $visitorClass( $this, $this->path );
+                    #        $visitor->options = $this->options->xhtmlVisitorOptions;
+
+                    #        $document->setDomDocument(
+                    #            $visitor->visit( $this->ast, $this->path )
+                    #        );
+
+                    #        return $document;
+                    #    }
 
     public function convertEZXML2RST( ezcDocumentEzXml $ezXmlInput )
     {
@@ -73,37 +138,7 @@ class EzcDocumentEzXmlToRstConverter
         
     }
 
-#     /**
-#     * Return document compiled to the HTML format
-#     *
-#     * The internal document structure is compiled to the HTML format and the
-#     * resulting HTML document is returned.
-#     *
-#     * This is an optional interface for document markup languages which
-#     * support a direct transformation to HTML as a shortcut.
-#     *
-#     * @return ezcDocumentXhtml
-#     */
-#    public function getAsXhtml()
-#    {
-#        $tokenizer = new ezcDocumentRstTokenizer();
-#        $parser    = new ezcDocumentRstParser();
-#        $parser->options->errorReporting = $this->options->errorReporting;
 
-#        $this->ast = $parser->parse( $tokenizer->tokenizeString( $this->contents ) );
-
-#        $document = new ezcDocumentXhtml();
-
-#        $visitorClass = $this->options->xhtmlVisitor;
-#        $visitor = new $visitorClass( $this, $this->path );
-#        $visitor->options = $this->options->xhtmlVisitorOptions;
-
-#        $document->setDomDocument(
-#            $visitor->visit( $this->ast, $this->path )
-#        );
-
-#        return $document;
-#    }
 
 #    /**
 #     * Validate the input file
@@ -121,4 +156,16 @@ class EzcDocumentEzXmlToRstConverter
 #    {
 #        return $this->validateString( file_get_contents( $file ) );
 #    }
+
+    /**
+     * Return document as string
+     *
+     * Serialize the document to a string an return it.
+     *
+     * @return string
+     */
+    public function save()
+    {
+        return $this->contents;
+    }
 }
