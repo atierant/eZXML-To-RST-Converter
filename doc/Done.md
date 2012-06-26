@@ -1,3 +1,15 @@
+26 Juin 2012
+============
+
+- Modification de la classe de conversion 
+xf. src/project/EzcDocumentEzXmlToRstConverter
+
+- Recherche du XSD du eZ XML :
+        + http://doc.ez.no/doc/Extensions/eZ-Publish-extensions/eZ-XML-Export/eZ-XML-Export-1.3-user-manual/Content-class-definition-configuration
+
+- Mise en place d'interfaces ezcDocumentRstEzXmlDirective et ezcDocumentRstEzXmlTextRole pour la prise en charge des directives et des rôles lors de la conversion
+cf. src/project/interfaces/
+
 25 Juin 2012
 ============
 
