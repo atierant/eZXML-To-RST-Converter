@@ -1,0 +1,226 @@
+<?php
+/**
+ * File containing the ezcDocumentEzXmlExtended class
+ *
+ * @copyright
+ * @license 
+ * @version 
+ * @filesource
+ * @package 
+ */
+
+/**
+ * The document handler extension for the eZ Publish 3 XML document markup.
+ *
+ * @package 
+ * @version 
+ */
+class ezcDocumentEzXmlExtended extends ezcDocumentEzXml
+
+    /**
+     * Construct document xml base.
+     *
+     * @ignore
+     * @param ezcDocumentEzXmlOptions $options
+     * @return void
+     */
+    public function __construct( ezcDocumentEzXmlOptions $options = null )
+    {
+        parent::__construct( $options === null ?
+            new ezcDocumentEzXmlOptions() :
+            $options );
+    }
+    
+     /**
+     * Create document from input string
+     *
+     * Create a document of the current type handler class and parse it into a
+     * usable internal structure.
+     *
+     * @param string $string
+     * @return void
+     */
+    public function loadString( $string )
+    {
+        // Use internal error handling to handle XML errors manually.
+        $oldXmlErrorHandling = libxml_use_internal_errors( true );
+        libxml_clear_errors();
+
+        // Load XML document
+        $this->document = new DOMDocument();
+        $this->document->registerNodeClass( 'DOMElement', 'ezcDocumentPropertyContainerDomElement' );
+
+        // Use the loadXml method here, as it for example convers tag names
+        // and attribute names to lower case, and handles some more errors
+        // common in eZ XML documents.
+        $this->document->loadXml( $string );
+
+        $errors = ( $this->options->failOnError ?
+            libxml_get_errors() :
+            null );
+
+        libxml_clear_errors();
+        libxml_use_internal_errors( $oldXmlErrorHandling );
+
+        // If there are errors and the error handling is activated throw an
+        // exception with the occured errors.
+        if ( $errors )
+        {
+            throw new ezcDocumentErroneousXmlException( $errors );
+        }
+    }
+    
+    
+    /**
+     * Build docbook document out of annotated ez XML document
+     *
+     * @param DOMDocument $document
+     * @return DOMDocument
+     */
+    protected function buildDocbookDocument( DOMDocument $document )
+    {
+        $docbook = new DOMDocument( '1.0', 'utf-8' );
+        $docbook->preserveWhiteSpace = false;
+        $docbook->formatOutput = true;
+
+        $root = $docbook->createElementNs( 'http://docbook.org/ns/docbook', 'article' );
+        $docbook->appendChild( $root );
+
+        $xpath = new DOMXPath( $document );
+        $ezXml = $xpath->query( '/*[local-name() = "ezxml"]' )->item( 0 );
+        $this->transformToDocbook( $ezXml, $root );
+
+        return $docbook;
+    }
+
+    /**
+     * Check if the current node is an inline element
+     *
+     * Textual content is only allowed in inline element. This method returns
+     * true if the current element is an inline element, otherwise text
+     * contents might be ignored in the output.
+     *
+     * @param DOMElement $element
+     * @return void
+     */
+    protected function isInlineElement( DOMElement $element )
+    {
+        // REPLACE WITH XML TAGS
+        return in_array( $element->tagName, array(
+            'author',
+            'authors',
+            'citation',
+            'contrib',
+            'copyright',
+            'date',
+            'email',
+            'emphasis',
+            'footnote',
+            'footnoteref',
+            'inlinemediaobject',
+            'link',
+            'literal',
+            'literallayout',
+            'para',
+            'pubdate',
+            'publisher',
+            'quote',
+            'releaseinfo',
+            'subscript',
+            'subtitle',
+            'superscript',
+            'term',
+            'title',
+            'ulink',
+        ) );
+    }
+    
+        /**
+     * Recursively transform annotated XHtml elements to docbook
+     *
+     * @param DOMElement $xhtml
+     * @param DOMElement $docbook
+     * @param bool $significantWhitespace
+     * @return void
+     */
+    protected function transformToDocbook( DOMElement $ezxml, DOMElement $docbook, $significantWhitespace = false )
+    {
+        if ( ( $tagName = $ezxml->getProperty( 'type' ) ) !== false )
+        {
+            $node = new DOMElement( $tagName );
+            $docbook->appendChild( $node );
+            $docbook = $node;
+
+            if ( ( $attributes = $xhtml->getProperty( 'attributes' ) ) !== false )
+            {
+                foreach ( $attributes as $name => $value )
+                {
+                    $node->setAttribute( $name, $value );
+                }
+            }
+        }
+
+        foreach ( $ezxml->childNodes as $child )
+        {
+            switch ( $child->nodeType )
+            {
+                case XML_ELEMENT_NODE:
+                    $this->transformToDocbook( $child, $docbook, $significantWhitespace || $ezxml->getProperty( 'whitespace' ) === 'significant' );
+                    break;
+
+                case XML_TEXT_NODE:
+                    // Skip pure whitespace text nodes, except for
+                    // intentionally converted <br> elements.
+                    if ( ( trim( $text = $child->data ) === '' ) &&
+                         ( !$significantWhitespace ) &&
+                         ( $ezxml->getProperty( 'whitespace' ) !== 'significant' ) )
+                    {
+                        continue;
+                    }
+
+                    if ( ( $ezxml->getProperty( 'whitespace' ) === 'significant' ) ||
+                         ( $significantWhitespace ) )
+                    {
+                        // Don't normalize inside nodes with significant whitespaces.
+                        $text = new DOMText( $text );
+                        $docbook->appendChild( $text );
+                    }
+                    else if ( $this->isInlineElement( $docbook ) )
+                    {
+                        $text = new DOMText( preg_replace( '(\s+)', ' ', $text ) );
+                        $docbook->appendChild( $text );
+                    }
+                    else
+                    {
+                        // Wrap contents into a paragraph, if we are yet
+                        // outside of an inline element.
+                        $text = new DOMText( trim( preg_replace( '(\s+)', ' ', $text ) ) );
+                        $para = $docbook->ownerDocument->createElement( 'para' );
+                        $para->appendChild( $text );
+                        $docbook->appendChild( $para );
+                    }
+                    break;
+
+                case XML_CDATA_SECTION_NODE:
+//                    $data = new DOMCharacterData();
+//                    $data->appendData( $child->data );
+//                    $docbook->appendChild( $data );
+                    break;
+
+                case XML_ENTITY_NODE:
+                    // Seems not required, as entities in the source document
+                    // are automatically transformed back to their text
+                    // targets.
+                    break;
+
+                case XML_COMMENT_NODE:
+                    // Ignore comments
+                    break;
+
+                    $comment = new DOMElement( 'comment', $child->data );
+                    $docbook->appendChild( $comment );
+                    break;
+            }
+        }
+    }
+
