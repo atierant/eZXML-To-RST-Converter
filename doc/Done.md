@@ -1,8 +1,19 @@
+28 Juin 2012
+============
+
+- Tests des fonctions de la classe de conversion 
+cf. src/project/EzcDocumentEzXmlToRstConverter
+
+Utilisation de DOM Document de php :
+        + tests de parsage sur divers fichiers xml
+        + tests de validation suivant des dtd/xsd
+        + recherche d'une dtd/xsd valide sur le format ezxml
+
 27 Juin 2012
 ============
 
 - Modification de la classe de conversion 
-xf. src/project/EzcDocumentEzXmlToRstConverter
+cf. src/project/EzcDocumentEzXmlToRstConverter
 
 Repérage des failles de conversion, sur le balisage customisé.
 Apprentissage de l'utilisation de DOM Document de php (Article intéressant sur PHP Solutions N°7, 08/2010)
@@ -11,7 +22,7 @@ Apprentissage de l'utilisation de DOM Document de php (Article intéressant sur 
 ============
 
 - Modification de la classe de conversion 
-xf. src/project/EzcDocumentEzXmlToRstConverter
+cf. src/project/EzcDocumentEzXmlToRstConverter
 
 - Recherche du XSD du eZ XML :
         + http://doc.ez.no/doc/Extensions/eZ-Publish-extensions/eZ-XML-Export/eZ-XML-Export-1.3-user-manual/Content-class-definition-configuration
