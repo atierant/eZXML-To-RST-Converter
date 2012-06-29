@@ -1,3 +1,11 @@
+29 Juin 2012
+============
+
+- Tests des fonctions de la classe de conversion 
+cf. src/project/EzcDocumentEzXmlToRstConverter
+
+Apprentissage de DOM Document de php (tests de parsage sur divers fichiers xml...)
+
 28 Juin 2012
 ============
 
