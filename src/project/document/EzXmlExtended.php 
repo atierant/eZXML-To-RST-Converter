@@ -135,7 +135,7 @@ class ezcDocumentEzXmlExtended extends ezcDocumentEzXml
         ) );
     }
     
-        /**
+    /**
      * Recursively transform annotated XHtml elements to docbook
      *
      * @param DOMElement $xhtml
