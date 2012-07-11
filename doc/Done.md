@@ -1,3 +1,11 @@
+10 & 11 Juillet 2012
+============
+
+- Compréhension d'un visiteur d'objet
+Apprentissage de ce qu'est un visiteur, essaie d'implémentation d'une classe visiteur pour les fichiers au format ezXML
+
+[...]
+
 29 Juin 2012
 ============
 
