@@ -39,6 +39,11 @@ class EzcDocumentEzXmlToRstConverter extends ezcDocumentElementVisitorConverter
      */
     public function convertRstToEzXml()
     {
+    
+        //////////////////////////////////////////////////////////
+        // Première partie : traitement du RST ///////////////////
+        //////////////////////////////////////////////////////////
+     
         // Parse the RST Document
         $tokenizer = new ezcDocumentRstTokenizer();
         $parser    = new ezcDocumentRstParser();
@@ -46,19 +51,22 @@ class EzcDocumentEzXmlToRstConverter extends ezcDocumentElementVisitorConverter
         $this->ast = $parser->parse( $tokenizer->tokenizeString( $this->contents ) );
         
         // Prepare the visitor
-        $visitorClass = $this->options->xhtmlVisitor;
-        $visitor = new $visitorClass( $this, $this->path );
-        $visitor->options = $this->options->xhtmlVisitorOptions;
+//        $visitorClass = $this->options->ezXmlVisitor;
+//        $visitor = new $visitorClass( $this, $this->path );
+//        $visitor->options = $this->options->ezXmlVisitorOptions;
 
         $document->setDomDocument(
             $visitor->visit( $this->ast, $this->path )
                 );
 
         return $document;
-        
-        
-        
-        
+    }
+    
+    public function convertRstToEzXmlPart2()
+    {
+     //////////////////////////////////////////////////////////
+     // Seconde partie : conversion en docbook ////////////////
+     //////////////////////////////////////////////////////////
     
         $rstInput = new ezcDocumentRst;
         // Create a new transitional ezcDocbook object to recieve the first convert
@@ -138,7 +146,7 @@ class EzcDocumentEzXmlToRstConverter extends ezcDocumentElementVisitorConverter
         
     }
 
-
+    
 
 #    /**
 #     * Validate the input file
@@ -168,4 +176,6 @@ class EzcDocumentEzXmlToRstConverter extends ezcDocumentElementVisitorConverter
     {
         return $this->contents;
     }
+    
+    
 }
