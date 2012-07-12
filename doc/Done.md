@@ -1,8 +1,18 @@
+12 Juillet 2012
+============
+
+- Suivi de tutoriaux sur le pattern visiteur
+Essai d'implémentation d'une classe visiteur pour les fichiers au format ezXML.
+La librairie ezc contient déjà un modèle de visiteur pour le type de données XHTML (dérivé de xml).
+Etant donné la structure également dérivée du xml qu'est le ezxml, nous nous appuyons sur l'exemple précédent (classe xhtmlVisitor existante) pour créer une classe ezXmlVisitor dérivée de ezcDocumentElementVisitorConverter et ses options associées ezXmlVisitorOptions pour prendre en charge l'AST Docbook.
+- Essai de rédaction d'un schéma xsd définissant sommairement le format ezXML
+  avec recherche pour étude de ce qui a été fait dans le projet xmi2code (non trouvé)
+
 10 & 11 Juillet 2012
 ============
 
 - Compréhension d'un visiteur d'objet
-Apprentissage de ce qu'est un visiteur, essaie d'implémentation d'une classe visiteur pour les fichiers au format ezXML
+Apprentissage de ce qu'est un visiteur, essai d'implémentation d'une classe visiteur  pour les fichiers au format ezXML
 
 [...]
 
