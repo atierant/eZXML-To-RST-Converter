@@ -5,9 +5,9 @@ Il existe un schéma de définition pour le format eZ XML dans la structure des 
 /lib/ezc/Document/src/document/xml/ezxml
 Ce schéma est au format RNG (http://relaxng.org/tutorial-20011203.html)
 
-Documentation du format Relax NG : https://gist.github.com/1571940f2f9994e9f360
+Documentation en cours du format Relax NG : https://gist.github.com/1571940f2f9994e9f360
 
-Trouvé source pour convertir un RNG en DTD et réciproquement :
+Trouvé une source pour convertir un RNG en DTD et réciproquement :
 http://www.stylusstudio.com/xmldev/200211/post81260.html
 ==> RNG -> DTD using James Clark's Trang : www.thaiopensource.com/relaxng/trang.html
 
