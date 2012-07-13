@@ -1,3 +1,16 @@
+13 Juillet 2012
+============
+
+Il existe un schéma de définition pour le format eZ XML dans la structure des ezc.
+/lib/ezc/Document/src/document/xml/ezxml
+Ce schéma est au format RNG (http://relaxng.org/tutorial-20011203.html)
+
+Trouvé source pour convertir un RNG en DTD et réciproquement :
+http://www.stylusstudio.com/xmldev/200211/post81260.html
+
+==> RNG -> DTD using James Clark's Trang : www.thaiopensource.com/relaxng/trang.html
+
+
 12 Juillet 2012
 ============
 
