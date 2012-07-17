@@ -1,3 +1,13 @@
+17 Juillet 2012
+============
+
+Suite de la documentation (cf. gist) + Installation d'une machine virtuelle pour une installation nouvelle d'eZ Publish
+
+16 Juillet 2012
+============
+
+Suite de la documentation (cf. gist) + Formation à eZ Publish
+
 13 Juillet 2012
 ============
 
