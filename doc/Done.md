@@ -2,6 +2,7 @@
 ============
 
 Installation d'une machine virtuelle pour une installation nouvelle d'eZ Publish
+Machine virtuelle installée. EZP installé. Configuration du vhost en cours.
 
 17 Juillet 2012
 ============
