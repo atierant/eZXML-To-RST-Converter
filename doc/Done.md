@@ -1,3 +1,8 @@
+18 Juillet 2012
+============
+
+Installation d'une machine virtuelle pour une installation nouvelle d'eZ Publish
+
 17 Juillet 2012
 ============
 
