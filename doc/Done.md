@@ -1,21 +1,36 @@
+22 & 23 Juillet 2012
+====================
+
+Configuration des SiteAccess + Manuel d'eZ + suite de la documentation sur Relax NG
+
+20 Juillet 2012
+===============
+
+Manuel d'eZ
+
+19 Juillet 2012
+===============
+
+Installation complète, configurée. Lecture du manuel eZ Publish.
+
 18 Juillet 2012
-============
+===============
 
 Installation d'une machine virtuelle pour une installation nouvelle d'eZ Publish
 Machine virtuelle installée. EZP installé. Configuration du vhost en cours.
 
 17 Juillet 2012
-============
+===============
 
 Suite de la documentation (cf. gist) + Installation d'une machine virtuelle pour une installation nouvelle d'eZ Publish
 
 16 Juillet 2012
-============
+===============
 
 Suite de la documentation (cf. gist) + Formation à eZ Publish
 
 13 Juillet 2012
-============
+===============
 
 Il existe un schéma de définition pour le format eZ XML dans la structure des ezc.
 /lib/ezc/Document/src/document/xml/ezxml
@@ -29,7 +44,7 @@ http://www.stylusstudio.com/xmldev/200211/post81260.html
 
 
 12 Juillet 2012
-============
+===============
 
 - Suivi de tutoriaux sur le pattern visiteur
 Essai d'implémentation d'une classe visiteur pour les fichiers au format ezXML.
