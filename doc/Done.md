@@ -1,3 +1,17 @@
+25 Juillet 2012
+===============
+
+Suite de la documentation sur Relax NG
+
+Conversion Du fichier RNG au format Relax NG Compact (RNC) avec l'outil de conversion Trang
+    java -jar "%directory%/trang-20091111/trang.jar" -I rng -O rnc ezxml_schema.rng ezxml_schema.rnc
+Le fichier RNC : /src/project/document/xml/ezxml/schema/ezxml_schema.rnc
+
+24 Juillet 2012
+===============
+
+Suite de la documentation sur Relax NG + Utilisation de l'outil Trang
+
 22 & 23 Juillet 2012
 ====================
 
