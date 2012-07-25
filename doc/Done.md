@@ -7,6 +7,10 @@ Conversion Du fichier RNG au format Relax NG Compact (RNC) avec l'outil de conve
     java -jar "%directory%/trang-20091111/trang.jar" -I rng -O rnc ezxml_schema.rng ezxml_schema.rnc
 Le fichier RNC : /src/project/document/xml/ezxml/schema/ezxml_schema.rnc
 
+Découverte de Design Patterns en XML, conseillés par James Clark (inventeur du nom XML et inventeur du format RNG) sur le site http://www.xmlpatterns.com/
+Les Design Patterns XML permettent de développer des documents XML efficaces à l'aide des modèles de conception structurels.
+
+
 24 Juillet 2012
 ===============
 
