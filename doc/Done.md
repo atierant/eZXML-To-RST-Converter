@@ -1,3 +1,11 @@
+30 Juillet 2012
+===============
+
+Suite de la documentation sur Relax NG
+
+cf. gist : https://gist.github.com/1571940f2f9994e9f360
+
+
 26 & 27 Juillet 2012
 ====================
 
