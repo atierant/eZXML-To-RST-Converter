@@ -2,6 +2,11 @@
 Relax NG
 ========
 
+:Author: 		Arnaud TIERANT
+:Date:			Jeudi 2 Août 2012
+:Revision: 		1
+:Copyright:		`GNU Free Documentation License <http://www.gnu.org/licenses/fdl.html>`_
+
 .. contents:: Table of Contents
    :depth: 3
 
