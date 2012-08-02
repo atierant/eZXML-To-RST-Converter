@@ -1,3 +1,18 @@
+2 Août 2012
+===========
+
+Suite de la documentation des Design Patterns XML
+cf. gist : https://gist.github.com/78fae8818f047d413406
+
+1 Août 2012
+===========
+
+Fin de la documentation sur Relax NG
+Document final dans /doc/documentation/RelaxNG/RelaxNG.rst
+
+Documentation des Design Patterns XML
+cf. gist : https://gist.github.com/78fae8818f047d413406
+
 31 Juillet 2012
 ===============
 
