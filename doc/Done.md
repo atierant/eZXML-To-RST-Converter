@@ -1,3 +1,16 @@
+4 Août 2012
+===========
+
+Réécriture du code XMPPHP
+
+Suite de la documentation des Design Patterns XML
+cf. gist : https://gist.github.com/78fae8818f047d413406
+
+3 Août 2012
+===========
+
+Briefing au bureau
+
 2 Août 2012
 ===========
 
