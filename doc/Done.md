@@ -1,3 +1,14 @@
+7 Août 2012
+===========
+
+Réécriture du code XMPPHP
++ suite du TD
+
+6 Août 2012
+===========
+
+Réécriture du code XMPPHP
+
 4 Août 2012
 ===========
 
