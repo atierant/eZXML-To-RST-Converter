@@ -1,3 +1,15 @@
+9 Août 2012
+===========
+
+Suite rédaction XML Design Patterns
+Réécriture du code XMPPHP
+
+8 Août 2012
+===========
+
+Travail @Synap
+Suite TD eZ Publish
+
 7 Août 2012
 ===========
 
