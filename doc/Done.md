@@ -2,6 +2,7 @@
 ============
 
 Suite rédaction XML Design Patterns
+Réécriture du code XMPPHP
 
 9 Août 2012
 ===========
