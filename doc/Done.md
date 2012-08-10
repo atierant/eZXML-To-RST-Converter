@@ -1,3 +1,8 @@
+10 Août 2012
+============
+
+Suite rédaction XML Design Patterns
+
 9 Août 2012
 ===========
 
