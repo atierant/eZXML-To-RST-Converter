@@ -1,9 +1,16 @@
+14 Août 2012
+============
+
 13 Août 2012
 ============
 
 Réécriture du code XMPPHP
+
 -> Réécriture de la fonction "message()"
 cf Gist : https://gist.github.com/aa37aa46a1bd4b2a1d7d
+
+-> Réécriture de la fonction "presence()"
+cf Gist : https://gist.github.com/bc4dad71bbefdf012d59
 
 10 Août 2012
 ============
