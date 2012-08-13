@@ -1,3 +1,10 @@
+13 Août 2012
+============
+
+Réécriture du code XMPPHP
+-> Réécriture de la fonction "message()"
+cf Gist : https://gist.github.com/aa37aa46a1bd4b2a1d7d
+
 10 Août 2012
 ============
 
